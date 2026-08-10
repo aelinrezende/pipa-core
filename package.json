@@ -17,5 +17,6 @@
       "protobufjs",
       "@google/genai"
     ]
-  }
+  },
+  "types": "./index.d.ts"
 }
