@@ -28,7 +28,10 @@ export declare class DocsCore extends DocsCore_base {
     /** Remove item e salva json */
     remove({ code }: DocsToolSchema<'remove'>): DocItem;
     /** Publica site estático extraindo .md e rodando retypeapp */
-    publish(): Promise<string>;
+    publish(): Promise<{
+        path: string;
+        url: string;
+    }>;
 }
 export {};
 //# sourceMappingURL=core.d.ts.map
