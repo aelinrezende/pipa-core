@@ -1,0 +1,21 @@
+{
+  "name": "@aelinrezende/pipa-core",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "SDK de features e utilitários da Pipa para construir extensões Pi customizadas",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "dependencies": {
+    "node-notifier": "^10.0.1",
+    "get-windows": "^9.3.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "get-windows",
+      "protobufjs",
+      "@google/genai"
+    ]
+  }
+}
