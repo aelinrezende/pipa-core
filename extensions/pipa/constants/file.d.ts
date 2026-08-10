@@ -8,4 +8,8 @@ export declare const SESSIONS_DIR: string;
 export declare const BACKLOG_BASE_DIR: string;
 /** Arquivo JSON único que persiste todos os itens do backlog */
 export declare const BACKLOG_JSON_FILE = "backlog.json";
+/** Diretório base da documentação */
+export declare const DOCS_BASE_DIR: string;
+/** Arquivo JSON único que persiste os documentos na pasta docs */
+export declare const DOCS_JSON_FILE = "entries.json";
 //# sourceMappingURL=file.d.ts.map

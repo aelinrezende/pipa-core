@@ -7,6 +7,7 @@ export { PermissionFeature } from './extensions/pipa/features/permission/permiss
 export { BacklogFeature } from './extensions/pipa/features/backlog/backlog.feature';
 export { ProviderFeature } from './extensions/pipa/features/provider/custom.feature';
 export { OnboardingFeature } from './extensions/pipa/features/onboarding';
+export { DocsFeature } from './extensions/pipa/features/docs/docs.feature';
 export { buildPipaApi, pipa } from './extensions/pipa/core/pipa';
 export { config } from './extensions/pipa/core/config';
 export { applyFeatures } from './extensions/pipa/core/apply-features';
@@ -17,6 +18,8 @@ export { TeammateState } from './extensions/pipa/features/teammate/hub/state';
 export { TaskHub } from './extensions/pipa/features/task/task.hub';
 export { TaskState } from './extensions/pipa/features/task/hub';
 export { PipaStore } from './extensions/pipa/cross-cutting/store';
+export { DocsHub } from './extensions/pipa/features/docs/docs.hub';
+export { DocsState } from './extensions/pipa/features/docs/hub/state';
 export type { PipaApi } from './extensions/pipa/interfaces/pipa';
 export type { PipaConfig, PipaTeammateConfig, PipaTasksConfig } from './extensions/pipa/interfaces/config';
 export type { Intercom } from './extensions/pipa/interfaces/intercom';
