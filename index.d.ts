@@ -9,6 +9,7 @@ export { ProviderFeature } from '../extensions/pipa/features/provider/custom.fea
 export { OnboardingFeature } from '../extensions/pipa/features/onboarding';
 export { buildPipaApi, pipa } from '../extensions/pipa/core/pipa';
 export { config } from '../extensions/pipa/core/config';
+export { applyFeatures } from '../extensions/pipa/core/apply-features';
 export { PipaEvent, PI_EVENTS_SYMBOLS } from '../extensions/pipa/core/decorators/events';
 export { PipaException } from '../extensions/pipa/core/errors/pipa-exception';
 export { TeammateHub } from '../extensions/pipa/features/teammate/teammate.hub';
