@@ -20,6 +20,11 @@ export declare const DOCS_TOOL_NUDGES: {
         readonly failed: readonly [string, "Falha ao atualizar corpo markdown"];
         readonly success: readonly [string, "Corpo markdown atualizado"];
     };
+    'update-metadata': {
+        code: string;
+        readonly failed: readonly [string, "Falha ao atualizar metadata"];
+        readonly success: readonly [string, "Metadata atualizado"];
+    };
     select: {
         code: string;
         readonly failed: readonly [string, "Falha na busca"];

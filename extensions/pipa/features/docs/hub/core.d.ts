@@ -23,6 +23,8 @@ export declare class DocsCore extends DocsCore_base {
     private normalizeBody;
     /** Manipula corpo markdown e persiste o entries.json */
     updateBody({ code, mode, value, replacement }: DocsToolSchema<'update-body'>): DocItem;
+    /** Faz merge de dados livres (metadata) no item e persiste o entries.json */
+    updateMetadata({ code, metadata }: DocsToolSchema<'update-metadata'>): DocItem;
     /** Busca fuzzy por título/código/tags via fuse.js */
     select({ query }: DocsToolSchema<'select'>): DocItem[];
     /** Remove item e salva json */

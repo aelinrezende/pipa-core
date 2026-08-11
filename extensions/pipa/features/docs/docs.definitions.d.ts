@@ -37,6 +37,12 @@ export declare const DOCS_TOOL_SCHEMA: {
         value: Type.TString;
         replacement: Type.TOptional<Type.TString>;
     }>;
+    /** Faz merge de dados livres (metadata) em um documento */
+    'update-metadata': Type.TObject<{
+        action: Type.TLiteral<"update-metadata">;
+        code: Type.TString;
+        metadata: Type.TRecord<"^.*$", Type.TUnknown>;
+    }>;
     /** Busca documentos via fuzzy search */
     select: Type.TObject<{
         action: Type.TLiteral<"select">;
@@ -57,6 +63,7 @@ export declare const DOCS_TOOL_ACTIONS_MESSAGE: {
     list: string;
     'update-frontmatter': string;
     'update-body': string;
+    'update-metadata': string;
     select: string;
     remove: string;
     publish: string;
