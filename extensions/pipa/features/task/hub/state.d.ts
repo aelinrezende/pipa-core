@@ -5,16 +5,20 @@ import { Task } from '../task.entity';
 export declare class TaskState {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
-    readonly fileManager: FileManager<Task[]>;
+    static get fileManager(): FileManager<Task[]>;
+    /**
+     * Recupera a store de tarefas.
+     */
+    private static get store();
     /**
      * Carrega as tarefas persistidas em disco para a store em memória.
      * O diretório é o da sessão principal (~/.pi/tasks/<sessionId-do-main>/tasks.json).
      */
     static load(): void;
     /**
-     * Recupera a store de tarefas.
+     * Salva silenciosamente o estado atual para o disco em JSON.
      */
-    private static get store();
+    private static persist;
     /**
      * Adiciona uma nova tarefa à store e retorna a tarefa criada.
      */

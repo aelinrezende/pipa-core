@@ -9,13 +9,13 @@ import type { PipaApi } from '../interfaces/pipa';
  */
 export interface DomainEventMap {
     /** Dispara na action `instantiate`; payload = documento persistido. */
-    'doc_created': DocItem;
+    doc_created: DocItem;
     /** Dispara nas actions `update-frontmatter` e `update-body`; payload = documento atualizado. */
-    'doc_updated': DocItem;
+    doc_updated: DocItem;
     /** Dispara na action `remove`; payload = documento removido. */
-    'doc_removed': DocItem;
+    doc_removed: DocItem;
     /** Dispara na action `publish`; payload = caminho do site e URL servida. */
-    'doc_published': {
+    doc_published: {
         path: string;
         url: string;
     };

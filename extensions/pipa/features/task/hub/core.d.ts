@@ -10,10 +10,6 @@ export declare class TaskCore extends TaskCore_base {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
     /**
-     * Salva silenciosamente o estado atual do TODO para o disco em JSON.
-     */
-    persist(): void;
-    /**
      * Obtém os detalhes de uma tarefa específica pelo seu ID.
      * @param data Payload único da action 'get'.
      * @returns A tarefa encontrada.

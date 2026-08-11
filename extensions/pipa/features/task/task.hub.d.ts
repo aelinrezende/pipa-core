@@ -1,6 +1,6 @@
 import { PipaApi } from '../../interfaces';
-import { Task, TaskToolSchema } from './task.entity';
 import { TaskCore, TaskSquad } from './hub';
+import { Task, TaskToolSchema } from './task.entity';
 declare const TaskHub_base: import("ts-mixer/dist/types/types").Class<any[], TaskCore & TaskSquad, typeof TaskCore & typeof TaskSquad>;
 /**
  * Gerencia as tarefas atribuídas aos teammates.
