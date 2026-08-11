@@ -7,7 +7,7 @@ declare const BacklogFeature_base: import("ts-mixer/dist/types/types").Class<any
  * Registra a tool 'backlog' e bloqueia write/edit direto em backlog.json.
  */
 export declare class BacklogFeature extends BacklogFeature_base {
-    private loadBacklog;
+    loadBacklog(): void;
     initialize(pi: ExtensionAPI): void;
 }
 export {};

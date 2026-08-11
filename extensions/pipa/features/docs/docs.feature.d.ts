@@ -6,7 +6,7 @@ declare const DocsFeature_base: import("ts-mixer/dist/types/types").Class<any[],
  * Registra a tool 'docs' e persiste os dados em docs/entries.json.
  */
 export declare class DocsFeature extends DocsFeature_base {
-    private loadDocs;
+    loadDocs(): void;
     initialize(pi: ExtensionAPI): void;
 }
 export {};
