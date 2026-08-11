@@ -21,6 +21,7 @@ export { PipaStore } from './extensions/pipa/cross-cutting/store';
 export { DocsHub } from './extensions/pipa/features/docs/docs.hub';
 export { DocsState } from './extensions/pipa/features/docs/hub/state';
 export type { PipaApi } from './extensions/pipa/interfaces/pipa';
+export type { DomainEventMap, DomainEventName, PipaPayload, DomainEventHandler } from './extensions/pipa/core/events.types';
 export type { PipaConfig, PipaTeammateConfig, PipaTasksConfig } from './extensions/pipa/interfaces/config';
 export type { Intercom } from './extensions/pipa/interfaces/intercom';
 export type { CommandPolicy } from './extensions/pipa/interfaces/permission';

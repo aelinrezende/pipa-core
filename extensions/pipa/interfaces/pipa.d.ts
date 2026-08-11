@@ -1,7 +1,8 @@
 import { Api, Model } from '@earendil-works/pi-ai';
-import type { ExtensionAPI, ExtensionContext } from '@earendil-works/pi-coding-agent';
+import type { EventBus, ExtensionAPI, ExtensionContext } from '@earendil-works/pi-coding-agent';
 import type { ToastService } from '../core/toast';
 export interface PipaApi extends Pick<ExtensionAPI, 'registerTool' | 'sendMessage' | 'appendEntry' | 'getAllTools'> {
+    events: EventBus;
     context: ExtensionContext;
     sessionId: string;
     toast: ToastService;

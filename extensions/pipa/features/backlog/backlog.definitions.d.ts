@@ -27,7 +27,7 @@ export declare const BACKLOG_TOOL_SCHEMA: {
     'update-frontmatter': Type.TObject<{
         action: Type.TLiteral<"update-frontmatter">;
         code: Type.TString;
-        field: Type.TUnion<[Type.TLiteral<"type" | "title" | "status" | "body" | "createdAt" | "code" | "priority" | "domain" | "parentCode" | "tags" | "updatedAt" | "order">, ...Type.TLiteral<"type" | "title" | "status" | "body" | "createdAt" | "code" | "priority" | "domain" | "parentCode" | "tags" | "updatedAt" | "order">[]]>;
+        field: Type.TUnion<[Type.TLiteral<"type" | "title" | "createdAt" | "updatedAt" | "tags" | "body" | "order" | "code" | "status" | "priority" | "domain" | "parentCode">, ...Type.TLiteral<"type" | "title" | "createdAt" | "updatedAt" | "tags" | "body" | "order" | "code" | "status" | "priority" | "domain" | "parentCode">[]]>;
         value: Type.TString;
     }>;
     /** Manipula o corpo markdown de um item do backlog */
