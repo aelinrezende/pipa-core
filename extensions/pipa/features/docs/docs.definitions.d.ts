@@ -7,6 +7,7 @@ export declare const DOCS_TOOL_SCHEMA: {
     instantiate: Type.TObject<{
         action: Type.TLiteral<"instantiate">;
         title: Type.TString;
+        parentCode: Type.TOptional<Type.TString>;
         tags: Type.TOptional<Type.TArray<Type.TString>>;
         metadata: Type.TOptional<Type.TRecord<"^.*$", Type.TUnknown>>;
         body: Type.TString;

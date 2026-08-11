@@ -14,6 +14,8 @@ export declare class DocItem {
     createdAt: string;
     /** ISO date da última modificação */
     updatedAt: string;
+    /** Código do documento pai (cria hierarquia no publish) */
+    parentCode?: string;
     /** Etiquetas livres para categorização */
     tags?: string[];
     /** Metadados arbitrários */
