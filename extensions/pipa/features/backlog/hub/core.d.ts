@@ -11,8 +11,6 @@ declare const BacklogCore_base: import("ts-mixer/dist/types/types").Class<any[],
 export declare class BacklogCore extends BacklogCore_base {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
-    /** Persiste um único item no disco via BacklogState (FileManager.save) */
-    persistOne(item: BacklogItem): void;
     /** Busca item por código — delega ao BacklogState (escaneia disco) */
     get(code: string): BacklogItem | undefined;
     /** Lista itens com filtro e ordenação — delega ao BacklogState (escaneia disco) */

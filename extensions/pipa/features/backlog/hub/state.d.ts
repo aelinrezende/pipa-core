@@ -14,20 +14,22 @@ export type BacklogListCriteria = Partial<Pick<BacklogItem, 'status' | 'type'>> 
 export declare class BacklogState {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
+    static get fileManager(): FileManager<BacklogItem[]>;
+    private static get store();
     /**
      * Carrega backlog.json do disco para a store em memória, substituindo o cache atual.
      */
     static load(): void;
-    private static get store();
-    readonly fileManager: FileManager<BacklogItem[]>;
+    /**
+     * Salva silenciosamente o estado atual para o disco em JSON.
+     */
+    private static persist;
     /**
      * Lista itens com filtro e ordenação — escaneia o disco.
      */
     static listBy(criteria?: BacklogToolSchema<'list'>): BacklogItem[];
     /** Lista todos os itens (sem filtro) */
     static all(): BacklogItem[];
-    /** Persiste todos os itens no disco (backlog.json) via FileManager */
-    saveAll(): void;
     /**
      * Busca um item por código — escaneia o disco.
      */
@@ -36,6 +38,10 @@ export declare class BacklogState {
     static clear(): void;
     /** Adiciona um item ao cache do backlog */
     static add(item: BacklogItem): void;
+    /**
+     * Atualiza os dados de um item existente na store e retorna o item atualizado.
+     */
+    static update(id: string, data: Partial<BacklogItem>): BacklogItem;
     /** Remove um item do cache do backlog */
     static delete(code: string): boolean;
 }
