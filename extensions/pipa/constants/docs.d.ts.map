@@ -1,1 +1,1 @@
-{"version":3,"file":"docs.d.ts","sourceRoot":"","sources":["../../../../extensions/pipa/constants/docs.ts"],"names":[],"mappings":"AAAA,wDAAwD;AACxD,eAAO,MAAM,gBAAgB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAyE5B,CAAC"}
+{"version":3,"file":"docs.d.ts","sourceRoot":"","sources":["../../../../extensions/pipa/constants/docs.ts"],"names":[],"mappings":"AAAA,mDAAmD;AACnD,eAAO,MAAM,kBAAkB,MAAM,CAAC;AAEtC,wDAAwD;AACxD,eAAO,MAAM,gBAAgB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAyE5B,CAAC"}

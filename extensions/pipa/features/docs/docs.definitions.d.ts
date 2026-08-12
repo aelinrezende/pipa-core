@@ -11,6 +11,7 @@ export declare const DOCS_TOOL_SCHEMA: {
         tags: Type.TOptional<Type.TArray<Type.TString>>;
         metadata: Type.TOptional<Type.TRecord<"^.*$", Type.TUnknown>>;
         body: Type.TString;
+        summary: Type.TString;
     }>;
     /** Lista documentos */
     list: Type.TObject<{
@@ -36,6 +37,7 @@ export declare const DOCS_TOOL_SCHEMA: {
         mode: Type.TUnion<[Type.TLiteral<"append">, Type.TLiteral<"replace">, Type.TLiteral<"set">]>;
         value: Type.TString;
         replacement: Type.TOptional<Type.TString>;
+        summary: Type.TOptional<Type.TString>;
     }>;
     /** Faz merge de dados livres (metadata) em um documento */
     'update-metadata': Type.TObject<{

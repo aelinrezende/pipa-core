@@ -10,6 +10,8 @@ export declare class DocItem {
     title: string;
     /** Conteúdo markdown */
     body: string;
+    /** Resumo curto do documento (fornecido pelo agente, máximo DOC_SUMMARY_LENGTH caracteres) */
+    summary: string;
     /** ISO date de criação */
     createdAt: string;
     /** ISO date da última modificação */

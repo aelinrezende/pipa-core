@@ -1,3 +1,5 @@
+/** Comprimento máximo do summary dos documentos */
+export declare const DOC_SUMMARY_LENGTH = 200;
 /** Mensagens contextuais para cada ação da tool docs */
 export declare const DOCS_TOOL_NUDGES: {
     create: {

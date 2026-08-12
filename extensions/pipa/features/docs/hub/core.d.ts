@@ -1,4 +1,5 @@
 import type { PipaApi } from '../../../interfaces';
+import { DocListItem } from '../../../lib/doc';
 import { DocItem, DocsToolSchema } from '../docs.entity';
 import { DocsState } from './state';
 import { DocsValidator } from './validator';
@@ -16,13 +17,13 @@ export declare class DocsCore extends DocsCore_base {
     /** Busca item por código */
     get(code: string): DocItem | undefined;
     /** Lista itens com filtro e ordenação */
-    list(sort: DocsToolSchema<'list'>): DocItem[];
+    list(sort: DocsToolSchema<'list'>): DocListItem[];
     /** Atualiza campo do frontmatter e persiste o entries.json */
     updateFrontmatter({ code, field, value }: DocsToolSchema<'update-frontmatter'>): DocItem;
     /** Normaliza quebras de linha */
     private normalizeBody;
     /** Manipula corpo markdown e persiste o entries.json */
-    updateBody({ code, mode, value, replacement }: DocsToolSchema<'update-body'>): DocItem;
+    updateBody({ code, mode, value, replacement, summary }: DocsToolSchema<'update-body'>): DocItem;
     /** Faz merge de dados livres (metadata) no item e persiste o entries.json */
     updateMetadata({ code, metadata }: DocsToolSchema<'update-metadata'>): DocItem;
     /** Busca fuzzy por título/código/tags via fuse.js */

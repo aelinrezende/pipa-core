@@ -15,6 +15,7 @@ export declare class DocsHub extends DocsHub_base {
         title: string;
         action: "instantiate";
         body: string;
+        summary: string;
     } & DocItem;
 }
 export {};

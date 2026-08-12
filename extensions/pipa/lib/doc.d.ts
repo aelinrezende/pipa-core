@@ -1,3 +1,16 @@
+export interface DocListSource {
+    code: string;
+    title: string;
+    summary: string;
+    createdAt: string;
+    updatedAt: string;
+    parentCode?: string;
+    tags?: string[];
+    body?: unknown;
+    metadata?: unknown;
+}
+export type DocListItem = Omit<DocListSource, 'body' | 'metadata'>;
+export declare function toDocListItem(item: DocListSource): DocListItem;
 /** Tipo estrutural mínimo para resolver caminhos de publicação de documentos */
 export interface DocPathNode {
     code: string;
