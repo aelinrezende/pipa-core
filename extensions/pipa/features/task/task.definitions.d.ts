@@ -21,11 +21,11 @@ export declare const TASK_TOOL_SCHEMA: {
         action: Type.TLiteral<"setup">;
         id: Type.TString;
         updates: Type.TObject<{
-            name: Type.TOptional<Type.TString>;
             blockedBy: Type.TOptional<Type.TArray<Type.TObject<{
                 id: Type.TString;
                 type: Type.TUnion<boolean[]>;
             }>>>;
+            name: Type.TOptional<Type.TString>;
             parentTaskId: Type.TOptional<Type.TString>;
         }>;
     }>;

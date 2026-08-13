@@ -18,7 +18,7 @@ export declare const BACKLOG_TOOL_SCHEMA: {
         status: Type.TOptional<Type.TUnion<[Type.TLiteral<import("./backlog.entity").BacklogStatus>, ...Type.TLiteral<import("./backlog.entity").BacklogStatus>[]]>>;
         type: Type.TOptional<Type.TUnion<[Type.TLiteral<import("./backlog.entity").BacklogItemType>, ...Type.TLiteral<import("./backlog.entity").BacklogItemType>[]]>>;
         sort: Type.TOptional<Type.TObject<{
-            field: Type.TUnion<[Type.TLiteral<"updatedAt" | "order">, ...Type.TLiteral<"updatedAt" | "order">[]]>;
+            field: Type.TUnion<[Type.TLiteral<"order" | "updatedAt">, ...Type.TLiteral<"order" | "updatedAt">[]]>;
             order: Type.TUnion<[Type.TLiteral<"ASC" | "DESC">, ...Type.TLiteral<"ASC" | "DESC">[]]>;
         }>>;
         limit: Type.TOptional<Type.TNumber>;
@@ -27,7 +27,7 @@ export declare const BACKLOG_TOOL_SCHEMA: {
     'update-frontmatter': Type.TObject<{
         action: Type.TLiteral<"update-frontmatter">;
         code: Type.TString;
-        field: Type.TUnion<[Type.TLiteral<"type" | "title" | "createdAt" | "updatedAt" | "tags" | "parentCode" | "body" | "order" | "code" | "status" | "priority" | "domain">, ...Type.TLiteral<"type" | "title" | "createdAt" | "updatedAt" | "tags" | "parentCode" | "body" | "order" | "code" | "status" | "priority" | "domain">[]]>;
+        field: Type.TUnion<[Type.TLiteral<"body" | "code" | "createdAt" | "domain" | "order" | "parentCode" | "priority" | "status" | "tags" | "title" | "type" | "updatedAt">, ...Type.TLiteral<"body" | "code" | "createdAt" | "domain" | "order" | "parentCode" | "priority" | "status" | "tags" | "title" | "type" | "updatedAt">[]]>;
         value: Type.TString;
     }>;
     /** Manipula o corpo markdown de um item do backlog */

@@ -32,7 +32,7 @@ export type ToolActionPayload<T extends Record<string, TSchema>, K extends keyof
  * Utilitário de tipagem condicional que verifica se dois tipos X e Y são estritamente iguais.
  * Retorna o tipo A se forem iguais, caso contrário, retorna o tipo B (padrão é never).
  */
-type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? A : B;
+type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X ? 1 : 2) extends <T>() => (T extends Y ? 1 : 2) ? A : B;
 /**
  * Extrai apenas as chaves de um tipo T que permitem escrita (não são readonly).
  */

@@ -1,1 +1,1 @@
-{"version":3,"file":"pipa.config.d.ts","sourceRoot":"","sources":["../pipa.config.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,qCAAqC,CAAC;AAEtE,QAAA,MAAM,MAAM,EAAE,UAiDb,CAAC;AAEF,eAAe,MAAM,CAAC"}
+{"version":3,"file":"pipa.config.d.ts","sourceRoot":"","sources":["../pipa.config.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,qCAAqC,CAAC;AAEtE,QAAA,MAAM,MAAM,EAAE,UAiDb,CAAC;eAEa,MAAM"}

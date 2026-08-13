@@ -9,11 +9,11 @@ export declare class DocsHub extends DocsHub_base {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
     instantiate(data: DocsToolSchema<'instantiate'>): {
-        tags?: string[] | undefined;
-        parentCode?: string | undefined;
-        metadata?: Record<string, unknown> | undefined;
-        title: string;
         action: "instantiate";
+        title: string;
+        parentCode?: string | undefined;
+        tags?: string[] | undefined;
+        metadata?: Record<string, unknown> | undefined;
         body: string;
         summary: string;
     } & DocItem;

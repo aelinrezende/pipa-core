@@ -10,15 +10,15 @@ export declare class BacklogHub extends BacklogHub_base {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
     instantiate(data: BacklogToolSchema<'instantiate'>): {
-        tags?: string[] | undefined;
-        parentCode?: string | undefined;
-        metadata?: Record<string, unknown> | undefined;
-        domain?: import("./backlog.entity").BacklogDomain[] | undefined;
-        type: import("./backlog.entity").BacklogItemType;
-        title: string;
         action: "instantiate";
-        body: string;
+        title: string;
+        type: import("./backlog.entity").BacklogItemType;
         priority: import("./backlog.entity").BacklogPriority;
+        domain?: import("./backlog.entity").BacklogDomain[] | undefined;
+        parentCode?: string | undefined;
+        tags?: string[] | undefined;
+        metadata?: Record<string, unknown> | undefined;
+        body: string;
     } & BacklogItem;
 }
 export {};

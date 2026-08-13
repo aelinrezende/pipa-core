@@ -9,16 +9,16 @@ export declare const TEAMMATE_TOOL_NUDGES: {
      */
     instantiate: {
         code: string;
-        readonly failed: readonly [string, "Falha durante início"];
-        readonly denied: readonly [string, "Acesso negado para invocar colega"];
+        readonly failed: readonly [string, 'Falha durante início'];
+        readonly denied: readonly [string, 'Acesso negado para invocar colega'];
     };
     /**
      * Nudges relacionados à remoção (deleção) de um agente e subordinados (dismiss).
      */
     dismiss: {
         code: string;
-        readonly failed: readonly [string, "Tentativa inválida de dispensar colega"];
-        readonly denied: readonly [string, "Acesso negado"];
+        readonly failed: readonly [string, 'Tentativa inválida de dispensar colega'];
+        readonly denied: readonly [string, 'Acesso negado'];
     };
 };
 export declare const TEAMMATE_STATUS_TRANSLATIONS: Record<TeammateStatus, string>;
