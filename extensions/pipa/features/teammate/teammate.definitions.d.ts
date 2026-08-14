@@ -27,6 +27,7 @@ export declare const TEAMMATE_TOOL_SCHEMA: {
     dismiss: Type.TObject<{
         action: Type.TLiteral<"dismiss">;
         teammateId: Type.TString;
+        reason: Type.TString;
     }>;
 };
 export declare const TEAMMATE_TOOL_ACTIONS_MESSAGE: {

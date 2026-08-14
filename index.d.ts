@@ -27,6 +27,10 @@ export type { Intercom } from './extensions/pipa/interfaces/intercom';
 export type { CommandPolicy } from './extensions/pipa/interfaces/permission';
 export type { ToastService } from './extensions/pipa/core/toast';
 export type { Teammate, TeammateStatus, TeammateFrontmatter, TeammatesStore, TeammateInboxMessage } from './extensions/pipa/features/teammate/teammate.entity';
+export type { DocItem } from './extensions/pipa/features/docs/docs.entity';
+export type { BacklogItem } from './extensions/pipa/features/backlog/backlog.entity';
+export type { Task } from './extensions/pipa/features/task/task.entity';
+export type { TodoItem } from './extensions/pipa/features/todo/todo.entity';
 export type { PiEvent } from './extensions/pipa/constants/pipa';
 export { PI_EVENTS } from './extensions/pipa/constants/pipa';
 //# sourceMappingURL=pipa-core.index.d.ts.map

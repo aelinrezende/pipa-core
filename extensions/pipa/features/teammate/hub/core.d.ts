@@ -24,12 +24,13 @@ export declare class TeammateCore extends TeammateValidator {
      * @param data Payload único da action 'dismiss'.
      * @returns Confirmação com o agente removido e a quantidade de sessões encerradas.
      */
-    dismiss({ teammateId }: TeammateToolSchema<'dismiss'>): Promise<{
+    dismiss({ teammateId, reason }: TeammateToolSchema<'dismiss'>): Promise<{
         dismissed: {
             id: string;
             name: string;
         };
         count: number;
+        reason: string;
     }>;
 }
 //# sourceMappingURL=core.d.ts.map
