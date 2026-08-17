@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../extensions/pipa/index.ts"],"names":[],"mappings":"AAAA,OAAO,eAAe,CAAC;AACvB,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,iCAAiC,CAAC;AAEpE,OAAO,uBAAuB,CAAC;AAY/B,wBAA8B,IAAI,CAAC,EAAE,EAAE,YAAY,iBAclD"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../extensions/pipa/index.ts"],"names":[],"mappings":"AAAA,OAAO,eAAe,CAAC;AACvB,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,iCAAiC,CAAC;AAEpE,OAAO,uBAAuB,CAAC;AAa/B,wBAA8B,IAAI,CAAC,EAAE,EAAE,YAAY,iBAelD"}

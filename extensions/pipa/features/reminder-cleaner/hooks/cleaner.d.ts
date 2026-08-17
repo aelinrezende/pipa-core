@@ -11,4 +11,4 @@ import type { PipaApi } from '../../../interfaces';
 export declare class ReminderCleaner {
     clean(event: ContextEvent, _pipa: PipaApi): ContextEventResult | void;
 }
-//# sourceMappingURL=reminder-cleaner.d.ts.map
+//# sourceMappingURL=cleaner.d.ts.map

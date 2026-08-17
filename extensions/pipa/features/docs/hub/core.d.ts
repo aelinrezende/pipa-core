@@ -20,8 +20,6 @@ export declare class DocsCore extends DocsCore_base {
     list(sort: DocsToolSchema<'list'>): DocListItem[];
     /** Atualiza campo do frontmatter e persiste o entries.json */
     updateFrontmatter({ code, field, value }: DocsToolSchema<'update-frontmatter'>): DocItem;
-    /** Normaliza quebras de linha */
-    private normalizeBody;
     /** Manipula corpo markdown e persiste o entries.json */
     updateBody({ code, mode, value, replacement, summary }: DocsToolSchema<'update-body'>): DocItem;
     /** Faz merge de dados livres (metadata) no item e persiste o entries.json */

@@ -1,4 +1,5 @@
 import { Theme } from '@earendil-works/pi-coding-agent';
+import { IString } from '../interfaces/string';
 export declare const dedent: (input: string) => string;
 export declare const slugfy: (input: string, maxLength?: number) => string;
 export declare const assembleLine: (theme: Theme, separator: string, ...parts: (string | undefined | null)[]) => string;
@@ -18,4 +19,14 @@ export declare const paragraph: (...input: string[]) => string;
  * @returns String com os valores interpolados.
  */
 export declare const interpolate: (template: string, values: Record<string, any>) => string;
+/** Normaliza quebras de linha */
+export declare const normalizeLineBreaks: (text: string) => string;
+/**
+ * Atualiza o texto com base no modo de atualização fornecido.
+ * @param current Texto atual.
+ * @param input Objeto contendo o modo de atualização e os valores.
+ * @param normalize Função para normalizar o valor.
+ * @returns Texto atualizado.
+ */
+export declare const updateText: (current: string | null | undefined, input: IString.UpdateBodyInput, exception?: Error) => string;
 //# sourceMappingURL=string.d.ts.map
