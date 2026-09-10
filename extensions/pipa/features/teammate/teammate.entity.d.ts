@@ -49,7 +49,7 @@ export declare class Teammate {
     /** Indica se o agente está rodando */
     get isRunning(): boolean;
 }
-export type TeammateStatus = 'running' | 'idle' | 'failed';
+export type TeammateStatus = 'running' | 'idle' | 'failed' | 'stopping';
 export interface TeammateFrontmatter {
     name: string;
     description: string;
