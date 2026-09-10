@@ -1,107 +1,131 @@
-SDK de features e utilitários da Pipa para construir extensões do [Pi](https://github.com/earendil-works/pi-coding-agent) customizadas.
+# pipa-core
 
-Inclui: features prontas (`docs`, `task`, `teammate`, `todo`, `backlog`, `permission`), API da Pipa (`buildPipaApi`, `applyFeatures`), decorator `@PipaEvent` e **eventos de domínio tipados** (`DomainEventMap`).
+SDK para criar extensões do Pi com features reutilizáveis, API de execução e eventos de domínio tipados.
 
-## Instalação
+Inclui `applyFeatures`, `PipaBaseFeature`, `PipaEvent`, `PipaApi` e o mapa `DomainEventMap`.
+
+## Instalação local
+
+No clone deste repositório, gere o pacote e instale o diretório produzido no projeto consumidor:
 
 ```bash
-npm install @aelinrezende/pipa-core
+cd /caminho/para/pipa/.pi
+bun run scripts/build-core.ts
+
+cd /caminho/do/projeto-consumidor
+npm install /caminho/para/pipa/.pi/dist-core
 ```
 
-## Quickstart
+O build gera `dist-core/`, incluindo `index.js`, declarações TypeScript, `package.json` e uma cópia deste README.
 
-Registre suas features no `pi` (ExtensionAPI) com `applyFeatures`:
+## Uso
 
-```ts
-import { applyFeatures, DocsFeature } from '@aelinrezende/pipa-core';
-import { AuditFeature } from './audit.feature';
-
-applyFeatures(pi, [DocsFeature, AuditFeature]);
-```
-
-Cada feature estende `PipaBaseFeature`:
+Registre no `ExtensionAPI` as features necessárias:
 
 ```ts
+import { applyFeatures, DocsFeature, PipaBaseFeature } from '@aelinrezende/pipa-core';
 import type { ExtensionAPI } from '@earendil-works/pi-coding-agent';
-import { PipaBaseFeature } from '@aelinrezende/pipa-core';
 
-export class AuditFeature extends PipaBaseFeature {
+class AuditFeature extends PipaBaseFeature {
   initialize(pi: ExtensionAPI): void {
     pi.registerTool({ name: 'audit' /* ... */ });
   }
 }
+
+await applyFeatures(pi, [DocsFeature, AuditFeature]);
 ```
 
-## Eventos de domínio
+Para cada construtor informado, `applyFeatures` cria uma instância e chama `initialize(pi)`, se implementado. Em seguida, registra métodos decorados com `@PipaEvent`. A propriedade `feature.pipa` é construída e atribuída imediatamente antes da execução de cada handler decorado; use o argumento `pipa` do handler quando precisar da API no evento.
 
-Eventos de domínio são fatos que o código pode observar (ex.: "documento criado") — diferente dos eventos fixos do agente (`session_start`, `tool_call`, ...).
+## Features incluídas
 
-- **Roteamento**: eventos do agente → `pi.on`; eventos de domínio → `pi.events` (EventBus nativo da lib).
-- **Semântica**: reação, não interceptação — o handler roda **depois** do fato consumado, com `(payload, pipa)`.
-- **Tipagem**: o payload é derivado de `DomainEventMap` (compile-time); handler com erro não derruba a tool (fire-and-forget com try/catch).
+| Feature | Responsabilidade |
+| --- | --- |
+| `DocsFeature` | Documentos e publicação da base de conhecimento. |
+| `TaskFeature` | Tarefas operacionais e dependências. |
+| `TeammateFeature` | Ciclo de vida e comunicação entre colegas. |
+| `TodoFeature` | Checklist operacional do agente. |
+| `BacklogFeature` | Backlog persistente do projeto. |
+| `PermissionFeature` | Guardas de terminal e custom tools. |
+| `OnboardingFeature` | Perfil e onboarding do agente principal. |
+| `ReminderCleanerFeature` | Remove notificações já consumidas do contexto. |
+| `ToolResultCompactorFeature` | Compacta resultados antigos e volumosos de tools. |
 
-### Ouvindo eventos
+As sete primeiras são exports do SDK. As duas últimas são ativadas pela extensão Pipa para higiene de contexto e não são exports do pacote.
+
+## Eventos
+
+`@PipaEvent` aceita eventos do agente e eventos de domínio. Eventos do agente são registrados em `pi.on`; eventos de domínio são observados em `pi.events`. Handlers recebem o payload e a `PipaApi`:
 
 ```ts
-import { PipaBaseFeature, PipaEvent, PipaPayload, PipaApi } from '@aelinrezende/pipa-core';
+import { PipaBaseFeature, PipaEvent } from '@aelinrezende/pipa-core';
+import type { PipaApi, PipaPayload } from '@aelinrezende/pipa-core';
 
-export class ListenerFeature extends PipaBaseFeature {
+class ListenerFeature extends PipaBaseFeature {
   @PipaEvent('doc_created')
   onDocCreated(item: PipaPayload<'doc_created'>, pipa: PipaApi): void {
-    console.log(`[listener] doc criado: ${item.code} - ${item.title}`);
+    console.log(`${item.code}: ${item.title}`);
   }
 }
 ```
 
-O `this` dentro do handler é a instância da feature. Registro: basta incluir a feature no `applyFeatures`.
-
-### Emitindo eventos
+Os handlers de domínio são reações ao fato já consumado. Para emitir um evento, use a API disponível no handler ou na feature:
 
 ```ts
-// Em qualquer lugar com acesso à PipaApi:
 this.pipa.events.emit('doc_created', item);
 ```
 
 ### DomainEventMap (eventos nativos)
 
-| Evento          | Payload         | Dispara em                                            |
-| --------------- | --------------- | ----------------------------------------------------- |
-| `doc_created`   | `DocItem`       | `docs` → action `instantiate`                         |
-| `doc_updated`   | `DocItem`       | `docs` → actions `update-frontmatter` / `update-body` |
-| `doc_removed`   | `DocItem`       | `docs` → action `remove`                              |
-| `doc_published` | `{ path, url }` | `docs` → action `publish`                             |
+| Domínio | Evento | Payload | Action de origem |
+| --- | --- | --- | --- |
+| Docs | `doc_created` | `DocItem` | `instantiate` |
+| Docs | `doc_updated` | `DocItem` | `update-frontmatter`, `update-body` |
+| Docs | `doc_removed` | `DocItem` | `remove` |
+| Docs | `doc_published` | `{ path, url }` | `publish` |
+| Backlog | `backlog_created` | `BacklogItem` | `instantiate` |
+| Backlog | `backlog_updated` | `BacklogItem` | `update-frontmatter`, `update-body`, `update-metadata` |
+| Backlog | `backlog_removed` | `BacklogItem` | `remove` |
+| Task | `task_created` | `Task` | `instantiate` |
+| Task | `task_claimed` | `Task` | `claim` |
+| Task | `task_updated` | `Task` | `setup`, `update` |
+| Task | `task_completed` | `Task` | `complete` |
+| Task | `task_removed` | `Task` | `remove` |
+| Todo | `todo_created` | `TodoItem` | `instantiate` |
+| Todo | `todo_updated` | `TodoItem` | `update` |
+| Todo | `todo_removed` | `TodoItem` | `remove` |
+| Todo | `todo_cleared` | `{ sessionId }` | `clear` |
+| Teammate | `teammate_created` | `TeammateEventPayload` | `instantiate` |
+| Teammate | `teammate_removed` | `{ dismissed, count, reason }` | `dismiss` |
 
-Leituras (`list`, `select`) **não** emitem evento.
+Leituras não emitem eventos. Além das actions da tabela, `task_updated` também pode ser emitido quando a alteração de uma subtarefa sincroniza o status da tarefa pai.
 
-### Estendendo o mapa (novos domínios)
+### Estendendo o mapa
 
-`DomainEventMap` é uma `interface` — estenda via declaration merging, sem alterar o core:
+`DomainEventMap` é uma interface e aceita declaration merging:
 
 ```ts
-// features/task/task.types.ts
+import type { PipaPayload } from '@aelinrezende/pipa-core';
+
 declare module '@aelinrezende/pipa-core' {
   interface DomainEventMap {
-    'task_created': TaskItem;
+    audit_recorded: { id: string };
   }
 }
 
-// no hub da feature (produtor):
-this.pipa.events.emit('task_created', task);
+this.pipa.events.emit('audit_recorded', { id: 'audit-1' });
 
-// consumindo:
-@PipaEvent('task_created')
-onTaskCreated(task: PipaPayload<'task_created'>, pipa: PipaApi): void { /* ... */ }
+@PipaEvent('audit_recorded')
+onAuditRecorded(item: PipaPayload<'audit_recorded'>): void {
+  console.log(item.id);
+}
 ```
 
 ## Exports principais
 
-- `applyFeatures(pi, features)` — registra features e handlers (agente + domínio).
-- `buildPipaApi(pi, context)` / `pipa` — API da Pipa (inclui `events: EventBus`).
-- `PipaEvent(event)` — decorator de handler; aceita `PiEvent` ou `DomainEventName`.
-- `PipaBaseFeature` — base para features (`pi`, `pipa`, `initialize?`).
-- `DomainEventMap`, `DomainEventName`, `PipaPayload<E>`, `DomainEventHandler<E>` — tipos de eventos de domínio.
-- Features e hubs: `DocsFeature`, `TaskFeature`, `TeammateFeature`, `TodoFeature`, `BacklogFeature`, `PermissionFeature`, `ProviderFeature`, `OnboardingFeature`.
-
-## Referências
-
-Detalhes do design e da implementação dos eventos de domínio: `.artifacts/eventos-dominio/` (`DESIGN.md`, `PLANO.md`, relatórios).
+- `applyFeatures(pi, features)` — instancia features, chama sua inicialização e registra handlers decorados.
+- `buildPipaApi(pi, context)` e `pipa()` — API da Pipa e acesso à instância principal.
+- `PipaEvent(event)` — decorator para `PiEvent` ou `DomainEventName`.
+- `PipaBaseFeature` — base com `pi`, `pipa` e `initialize?`.
+- `DomainEventMap`, `DomainEventName`, `PipaPayload<E>` e `DomainEventHandler<E>` — tipos de eventos de domínio.
+- Hubs e estado: `DocsHub`, `DocsState`, `TaskHub`, `TaskState`, `TeammateHub`, `TeammateState` e `PipaStore`.
