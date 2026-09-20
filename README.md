@@ -4,16 +4,22 @@ SDK para criar extensões do Pi com features reutilizáveis, API de execução e
 
 Inclui `applyFeatures`, `PipaBaseFeature`, `PipaEvent`, `PipaApi` e o mapa `DomainEventMap`.
 
-## Instalação local
+## Instalação
 
-No clone deste repositório, gere o pacote e instale o diretório produzido no projeto consumidor:
+O pacote está publicado no npm:
 
 ```bash
-cd /caminho/para/pipa/.pi
-bun run scripts/build-core.ts
+npm install @aelinrezende/pipa-core
+```
 
-cd /caminho/do/projeto-consumidor
-npm install /caminho/para/pipa/.pi/dist-core
+Também funciona com `bun add @aelinrezende/pipa-core` ou `pnpm add @aelinrezende/pipa-core`.
+
+### Desenvolvimento local
+
+Para buildar o SDK a partir do fonte, clone `github.com/aelinrezende/pipa-source` e rode o build na pasta `.pi`:
+
+```bash
+bun run scripts/build-core.ts
 ```
 
 O build gera `dist-core/`, incluindo `index.js`, declarações TypeScript, `package.json` e uma cópia deste README.
