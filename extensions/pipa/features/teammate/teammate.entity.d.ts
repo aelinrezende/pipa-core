@@ -48,6 +48,8 @@ export declare class Teammate {
     eventsMountMap?: Record<string, boolean>;
     /** Indica se o agente está rodando */
     get isRunning(): boolean;
+    /** Indica se o agente está sendo encerrado */
+    get isStopping(): boolean;
 }
 export type TeammateStatus = 'running' | 'idle' | 'failed' | 'stopping';
 export interface TeammateFrontmatter {

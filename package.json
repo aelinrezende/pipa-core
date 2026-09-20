@@ -1,11 +1,41 @@
 {
   "name": "@aelinrezende/pipa-core",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "description": "SDK de features e utilitários da Pipa para construir extensões Pi customizadas",
   "main": "./index.js",
   "exports": {
     ".": "./index.js"
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "index.d.ts.map",
+    "pipa.config.d.ts",
+    "pipa.config.d.ts.map",
+    "extensions/**",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aelinrezende/pipa-core.git"
+  },
+  "license": "MIT",
+  "author": "Aelin Rezende",
+  "keywords": [
+    "pi",
+    "pipa",
+    "agent",
+    "extension",
+    "sdk",
+    "ai"
+  ],
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
     "@earendil-works/pi-coding-agent": "^0.80.10",
@@ -35,6 +65,5 @@
       "protobufjs",
       "@google/genai"
     ]
-  },
-  "types": "./index.d.ts"
+  }
 }
