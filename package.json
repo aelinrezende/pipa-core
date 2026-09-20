@@ -1,6 +1,5 @@
 {
   "name": "@aelinrezende/pipa-core",
-  "version": "1.0.3",
   "type": "module",
   "description": "SDK de features e utilitários da Pipa para construir extensões Pi customizadas",
   "main": "./index.js",
@@ -65,5 +64,6 @@
       "protobufjs",
       "@google/genai"
     ]
-  }
+  },
+  "version": "1.0.4"
 }
