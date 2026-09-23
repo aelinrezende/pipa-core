@@ -21,5 +21,7 @@ export declare const TEAMMATE_TOOL_NUDGES: {
         readonly denied: readonly [string, 'Acesso negado'];
     };
 };
+/** Valores válidos de `thinking` no frontmatter — espelha o enum do SDK (união de strings). */
+export declare const TEAMMATE_THINKING_LEVELS: readonly ["off", "minimal", "low", "medium", "high", "xhigh", "max"];
 export declare const TEAMMATE_STATUS_TRANSLATIONS: Record<TeammateStatus, string>;
 //# sourceMappingURL=teammate.d.ts.map

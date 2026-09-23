@@ -1,3 +1,4 @@
+import type { ThinkingLevel } from '@earendil-works/pi-agent-core';
 import { AgentSession } from '@earendil-works/pi-coding-agent';
 import { PiEvent } from '../../constants/pipa';
 import { PipaApi } from '../../interfaces/pipa';
@@ -57,6 +58,7 @@ export interface TeammateFrontmatter {
     description: string;
     body: string;
     spawnableTeammates?: Record<string, string>;
+    thinking?: ThinkingLevel;
 }
 export type TeammatesStore = Map<string, Teammate>;
 export interface TeammateInboxMessage {
