@@ -62,6 +62,10 @@ export declare const TASK_TOOL_SCHEMA: {
         artifactFile: Type.TString;
         force: Type.TOptional<Type.TBoolean>;
     }>;
+    reopen: Type.TObject<{
+        action: Type.TLiteral<"reopen">;
+        id: Type.TString;
+    }>;
     'list-by-squad': Type.TObject<{
         action: Type.TLiteral<"list-by-squad">;
         squad: Type.TString;
@@ -80,6 +84,7 @@ export declare const TASK_TOOL_ACTIONS_MESSAGE: {
     remove: string;
     claim: string;
     complete: string;
+    reopen: string;
     'list-by-squad': string;
     'squad-status': string;
 };

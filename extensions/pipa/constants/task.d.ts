@@ -50,6 +50,14 @@ export declare const TASK_TOOL_NUDGES: {
         readonly denied: readonly [string, 'Acesso negado'];
     };
     /**
+     * Nudges relacionados à reabertura de uma tarefa concluída.
+     */
+    reopen: {
+        code: string;
+        readonly failed: readonly [string, 'Falha durante reabertura'];
+        readonly success: readonly [string, 'Tarefa reaberta'];
+    };
+    /**
      * Nudges relacionados à marcação de uma tarefa como concluída.
      */
     complete: {

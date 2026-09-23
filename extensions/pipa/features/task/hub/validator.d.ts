@@ -46,5 +46,11 @@ export declare class TaskValidator {
      * A orientação de force só é exibida para main (não-main não pode usar force).
      */
     protected canComplete(id: string, teammate: Teammate, artifactFile?: string, force?: boolean): Task;
+    /**
+     * Valida se uma tarefa pode ser reaberta pelo teammate.
+     * Exige que a tarefa esteja concluída e que o solicitante seja o owner atual.
+     * Tarefas sem owner não podem ser reabertas (§4.1).
+     */
+    protected canReopen(id: string, teammate: Teammate): Task;
 }
 //# sourceMappingURL=validator.d.ts.map

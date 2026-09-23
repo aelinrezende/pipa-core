@@ -52,6 +52,12 @@ export declare class TaskCore extends TaskCore_base {
      */
     complete({ id, artifactFile, force }: TaskToolSchema<'complete'>): Task;
     /**
+     * Reabre uma tarefa concluída, devolvendo-a ao andamento e notificando o supervisor.
+     * @param data Payload único da action 'reopen': o ID da tarefa.
+     * @returns A tarefa reaberta.
+     */
+    reopen({ id }: TaskToolSchema<'reopen'>): Task;
+    /**
      * Proativamente avisa subagentes que estão ociosos sobre novas tarefas disponíveis.
      */
     notifyEligibleIdleTeammates(): void;
