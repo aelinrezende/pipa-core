@@ -58,6 +58,22 @@ export declare const TASK_TOOL_NUDGES: {
         readonly success: readonly [string, 'Tarefa reaberta'];
     };
     /**
+     * Nudges relacionados à pausa de uma tarefa em andamento.
+     */
+    pause: {
+        code: string;
+        readonly failed: readonly [string, 'Falha durante pausa'];
+        readonly success: readonly [string, 'Tarefa pausada'];
+    };
+    /**
+     * Nudges relacionados à retomada de uma tarefa pausada.
+     */
+    resume: {
+        code: string;
+        readonly failed: readonly [string, 'Falha durante retomada'];
+        readonly success: readonly [string, 'Tarefa retomada'];
+    };
+    /**
      * Nudges relacionados à marcação de uma tarefa como concluída.
      */
     complete: {

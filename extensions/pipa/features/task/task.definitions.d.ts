@@ -66,6 +66,14 @@ export declare const TASK_TOOL_SCHEMA: {
         action: Type.TLiteral<"reopen">;
         id: Type.TString;
     }>;
+    pause: Type.TObject<{
+        action: Type.TLiteral<"pause">;
+        id: Type.TString;
+    }>;
+    resume: Type.TObject<{
+        action: Type.TLiteral<"resume">;
+        id: Type.TString;
+    }>;
     'list-by-squad': Type.TObject<{
         action: Type.TLiteral<"list-by-squad">;
         squad: Type.TString;
@@ -75,17 +83,5 @@ export declare const TASK_TOOL_SCHEMA: {
         squad: Type.TString;
     }>;
 };
-export declare const TASK_TOOL_ACTIONS_MESSAGE: {
-    get: string;
-    setup: string;
-    list: string;
-    instantiate: string;
-    update: string;
-    remove: string;
-    claim: string;
-    complete: string;
-    reopen: string;
-    'list-by-squad': string;
-    'squad-status': string;
-};
+export declare const TASK_TOOL_ACTIONS_MESSAGE: Record<keyof typeof TASK_TOOL_SCHEMA, string>;
 //# sourceMappingURL=task.definitions.d.ts.map

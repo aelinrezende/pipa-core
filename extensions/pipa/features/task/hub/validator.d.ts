@@ -52,5 +52,17 @@ export declare class TaskValidator {
      * Tarefas sem owner não podem ser reabertas (§4.1).
      */
     protected canReopen(id: string, teammate: Teammate): Task;
+    /**
+     * Valida se uma tarefa em andamento pode ser pausada pelo teammate.
+     * Exige que o solicitante seja o owner atual.
+     * Tarefas sem owner não podem ser pausadas (§4.1).
+     */
+    protected canPause(id: string, teammate: Teammate): Task;
+    /**
+     * Valida se uma tarefa pausada pode ser retomada pelo teammate.
+     * Exige que o solicitante seja o owner atual.
+     * Tarefas sem owner não podem ser retomadas (§4.1).
+     */
+    protected canResume(id: string, teammate: Teammate): Task;
 }
 //# sourceMappingURL=validator.d.ts.map

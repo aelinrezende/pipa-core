@@ -58,6 +58,20 @@ export declare class TaskCore extends TaskCore_base {
      */
     reopen({ id }: TaskToolSchema<'reopen'>): Task;
     /**
+     * Pausa uma tarefa em andamento, movendo-a para 'stopped'.
+     * Cascata no status do épico.
+     * @param data Payload único da action 'pause': o ID da tarefa.
+     * @returns A tarefa pausada.
+     */
+    pause({ id }: TaskToolSchema<'pause'>): Task;
+    /**
+     * Retoma uma tarefa pausada, devolvendo-a para 'in-progress'.
+     * Preserva o owner atual (§D13). Simétrico a 'pause'.
+     * @param data Payload único da action 'resume': o ID da tarefa.
+     * @returns A tarefa retomada.
+     */
+    resume({ id }: TaskToolSchema<'resume'>): Task;
+    /**
      * Proativamente avisa subagentes que estão ociosos sobre novas tarefas disponíveis.
      */
     notifyEligibleIdleTeammates(): void;
