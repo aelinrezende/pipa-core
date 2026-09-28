@@ -1,19 +1,17 @@
 import type { PipaApi } from '../../../interfaces';
 import { BacklogItem, BacklogToolSchema } from '../backlog.entity';
-import { BacklogState } from './state';
+import { BacklogRepository } from '../backlog.repository';
 import { BacklogValidator } from './validator';
-declare const BacklogCore_base: import("ts-mixer/dist/types/types").Class<any[], BacklogValidator & BacklogState, typeof BacklogValidator & typeof BacklogState>;
 /**
  * Núcleo de CRUD do backlog.
  * Síncrono. Persiste todos os itens como um único backlog.json.
- * Leitura (list/get) delega para BacklogState, que carrega o disco sob demanda.
+ * O repository é resolvido sob demanda via `Repositories.resolve('backlog')`.
  */
-export declare class BacklogCore extends BacklogCore_base {
+export declare class BacklogCore extends BacklogValidator {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
-    /** Busca item por código — delega ao BacklogState (escaneia disco) */
-    get(code: string): BacklogItem | undefined;
-    /** Lista itens com filtro e ordenação — delega ao BacklogState (escaneia disco) */
+    protected readonly repo: BacklogRepository;
+    constructor(pipa: PipaApi, repo: BacklogRepository);
+    /** Lista itens com filtro e ordenação — o repository semeia o disco sob demanda */
     list(sort: BacklogToolSchema<'list'>): BacklogItem[];
     /** Atualiza campo do frontmatter e persiste o backlog.json */
     updateFrontmatter({ code, field, value }: BacklogToolSchema<'update-frontmatter'>): BacklogItem;
@@ -35,8 +33,6 @@ export declare class BacklogCore extends BacklogCore_base {
      * Persiste uma única vez no fim da cascata.
      */
     protected recalculateAncestors(code: string): void;
-    /** Normaliza quebras de linha — aceita \\n literal ou newline real */
-    private normalizeBody;
     /** Manipula corpo markdown e persiste o backlog.json */
     updateBody({ code, mode, value, replacement }: BacklogToolSchema<'update-body'>): BacklogItem;
     /** Faz merge de dados livres (metadata) no item e persiste o backlog.json */
@@ -46,5 +42,4 @@ export declare class BacklogCore extends BacklogCore_base {
     /** Remove item do backlog e recalcula o antigo pai em cascata */
     remove({ code }: BacklogToolSchema<'remove'>): BacklogItem;
 }
-export {};
 //# sourceMappingURL=core.d.ts.map

@@ -1,5 +1,6 @@
-import { PipaApi } from '../../interfaces';
+import { type PipaApi } from '../../interfaces';
 import { BacklogItem, BacklogToolSchema } from './backlog.entity';
+import { BacklogRepository } from './backlog.repository';
 import { BacklogCore, BacklogValidator } from './hub';
 declare const BacklogHub_base: import("ts-mixer/dist/types/types").Class<any[], BacklogValidator & BacklogCore, typeof BacklogValidator & typeof BacklogCore>;
 /**
@@ -8,7 +9,7 @@ declare const BacklogHub_base: import("ts-mixer/dist/types/types").Class<any[], 
  */
 export declare class BacklogHub extends BacklogHub_base {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
+    constructor(pipa: PipaApi, repo: BacklogRepository);
     instantiate(data: BacklogToolSchema<'instantiate'>): {
         action: "instantiate";
         title: string;

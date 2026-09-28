@@ -1,10 +1,15 @@
 import { Teammate } from '../../teammate/teammate.entity';
 import { Dependency, Task } from '../task.entity';
+import type { PipaApi } from '../../../interfaces';
+import { TaskRepository } from '../task.repository';
 /**
  * Mixin que fornece métodos de validação de negócios para o TaskHub.
  * Isola as lógicas complexas de permissão, estado e checagem de erros.
  */
 export declare class TaskValidator {
+    readonly pipa: PipaApi;
+    protected readonly repo: TaskRepository;
+    constructor(pipa: PipaApi, repo: TaskRepository);
     /**
      * Valida unicidade de nome da tarefa.
      */

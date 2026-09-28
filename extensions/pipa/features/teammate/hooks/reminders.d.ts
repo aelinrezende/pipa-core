@@ -1,11 +1,16 @@
-import type { PipaApi } from '../../../interfaces';
-import { TeammateSessionIntervalsHost } from './session-interval';
 import type { MessageEndEvent, MessageStartEvent, MessageUpdateEvent } from '@earendil-works/pi-coding-agent/extensions';
+import type { PipaApi } from '../../../interfaces';
+import { PipaBaseFeature } from '../../base-feature';
+import { TeammateRepository } from '../teammate.repository';
 /**
  * Hook responsável por gerenciar notificações e lembretes periódicos em background
  * (ociosidade, falhas e novas mensagens na inbox).
  */
-export declare class TeammateReminders extends TeammateSessionIntervalsHost {
+export declare class TeammateReminders extends PipaBaseFeature {
+    readonly pipa: PipaApi;
+    protected readonly repo: TeammateRepository;
+    constructor(pipa: PipaApi, repo: TeammateRepository);
+    private readonly sessionIntervals;
     private lastIdleNudgeAt;
     private idleNudgeCount;
     private readonly failure;

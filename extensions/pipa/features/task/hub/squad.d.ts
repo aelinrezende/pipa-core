@@ -1,15 +1,13 @@
-import { PipaApi } from '../../../interfaces';
+import { type PipaApi } from '../../../interfaces';
 import { Task, TaskToolSchema } from '../task.entity';
+import { TaskRepository } from '../task.repository';
 /**
  * Mixin de operações de squad para o TaskManager.
  */
 export declare class TaskSquad {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
-    /**
-     * Lista as tarefas principais (épicos) de todos os squads em andamento ou registrados.
-     */
-    static getActiveSquads(): Task[];
+    protected readonly repo: TaskRepository;
+    constructor(pipa: PipaApi, repo: TaskRepository);
     /**
      * Retorna a primeira task raiz (sem parentTaskId) do squad informado, ou undefined.
      */

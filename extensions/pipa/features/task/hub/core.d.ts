@@ -1,21 +1,22 @@
-import { PipaApi } from '../../../interfaces';
+import type { PipaApi } from '../../../interfaces';
+import { TeammateRepository } from '../../teammate/teammate.repository';
 import { Task, TaskToolSchema } from '../task.entity';
-import { TaskState } from './state';
+import { TaskRepository } from '../task.repository';
 import { TaskValidator } from './validator';
-declare const TaskCore_base: import("ts-mixer/dist/types/types").Class<any[], TaskValidator & TaskState, typeof TaskValidator & typeof TaskState>;
 /**
  * Mixin central de operações e regras de negócio para tarefas no TaskHub.
  */
-export declare class TaskCore extends TaskCore_base {
+export declare class TaskCore extends TaskValidator {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
-    /**
-     * Obtém os detalhes de uma tarefa específica pelo seu ID.
-     * @param data Payload único da action 'get'.
-     * @returns A tarefa encontrada.
-     * @throws PipaException quando o ID não existe.
-     */
+    protected readonly repo: TaskRepository;
+    protected readonly teammateRepo: TeammateRepository;
+    constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
     get({ id }: TaskToolSchema<'get'>): Task;
+    /**
+     * Lê uma tarefa pelo ID a partir do repository de tarefas.
+     * @throws PipaException quando o ID não existe (ou o repo de task não está registrado).
+     */
+    protected task(id: string): Task;
     /**
      * Lista as tarefas do quadro, com suporte a filtro opcional por status.
      * @param data Payload único da action 'list'.
@@ -76,5 +77,4 @@ export declare class TaskCore extends TaskCore_base {
      */
     notifyEligibleIdleTeammates(): void;
 }
-export {};
 //# sourceMappingURL=core.d.ts.map

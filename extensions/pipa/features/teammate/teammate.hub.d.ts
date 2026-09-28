@@ -1,7 +1,9 @@
-import { PipaApi } from '../../interfaces/pipa';
+import type { PipaApi } from '../../interfaces/pipa';
+import { TaskRepository } from '../task/task.repository';
+import { TeammateCore, TeammateExchange, TeammateFrontmatter, TeammateValidator } from './hub';
 import { Teammate, TeammateToolSchema } from './teammate.entity';
-import { TeammateCore, TeammateExchange, TeammateFrontmatter, TeammateState, TeammateValidator } from './hub';
-declare const TeammateHub_base: import("ts-mixer/dist/types/types").Class<any[], TeammateFrontmatter & TeammateState & TeammateExchange & TeammateValidator & TeammateCore, typeof TeammateFrontmatter & typeof TeammateState & typeof TeammateExchange & typeof TeammateValidator & typeof TeammateCore>;
+import { TeammateRepository } from './teammate.repository';
+declare const TeammateHub_base: import("ts-mixer/dist/types/types").Class<any[], TeammateFrontmatter & TeammateExchange & TeammateValidator & TeammateCore, typeof TeammateFrontmatter & typeof TeammateExchange & typeof TeammateValidator & typeof TeammateCore>;
 /**
  * Gerencia os teammates (subagentes) do agente principal, incluindo criação,
  * armazenamento e comunicação.
@@ -11,8 +13,9 @@ declare const TeammateHub_base: import("ts-mixer/dist/types/types").Class<any[],
  */
 export declare class TeammateHub extends TeammateHub_base {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
-    private get teammatesFileManager();
+    protected readonly repo: TeammateRepository;
+    protected readonly taskRepo: TaskRepository;
+    constructor(pipa: PipaApi, repo: TeammateRepository, taskRepo: TaskRepository);
     /**
      * Aciona um teammate e inicia uma nova sessão para ele.
      * @param data Payload único da action 'instantiate'.

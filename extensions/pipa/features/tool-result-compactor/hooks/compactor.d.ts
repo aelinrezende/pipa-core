@@ -1,6 +1,7 @@
 import type { ContextEvent, TurnEndEvent } from '@earendil-works/pi-coding-agent';
 import type { ContextEventResult } from '@earendil-works/pi-coding-agent/extensions';
 import type { PipaApi } from '../../../interfaces';
+import { PipaBaseFeature } from '../../base-feature';
 /**
  * Substitui o conteúdo de tool results antigos e volumosos por um stub com caminho de arquivo,
  * reduzindo o contexto enviado ao LLM a cada turn (micro-compact periódico).
@@ -13,7 +14,7 @@ import type { PipaApi } from '../../../interfaces';
  * Idempotente: resultados já compactados (conteúdo curto) não serão reprocessados.
  * Sem estado persistido: o Map é reconstruído a cada sessão via eventos `turn_end`.
  */
-export declare class ToolResultCompactor {
+export declare class ToolResultCompactor extends PipaBaseFeature {
     private readonly toolResultTurns;
     private currentTurn;
     trackTurn(event: TurnEndEvent, _pipa: PipaApi): void;

@@ -1,10 +1,17 @@
 import type { ExtensionAPI } from '@earendil-works/pi-coding-agent';
 import { PipaBaseFeature } from '../base-feature';
-import { TaskGuard, TaskReminders, TaskTuiRegister } from './hooks';
-declare const TaskFeature_base: import("ts-mixer/dist/types/types").Class<any[], PipaBaseFeature & TaskReminders & TaskTuiRegister & TaskGuard, typeof PipaBaseFeature & typeof TaskReminders & typeof TaskTuiRegister & typeof TaskGuard>;
-export declare class TaskFeature extends TaskFeature_base {
-    loadTasks(): void;
-    initialize(pi: ExtensionAPI): void;
+import { TeammateRepository } from '../teammate/teammate.repository';
+import { TaskRepository } from './task.repository';
+export declare class TaskFeature extends PipaBaseFeature {
+    initialize(pi: ExtensionAPI): {
+        task: {
+            retrieve: () => TaskRepository;
+            dependencies: {
+                teammate: {
+                    retrieve: () => TeammateRepository;
+                };
+            };
+        };
+    };
 }
-export {};
 //# sourceMappingURL=task.feature.d.ts.map

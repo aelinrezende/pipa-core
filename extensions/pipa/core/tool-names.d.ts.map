@@ -1,0 +1,1 @@
+{"version":3,"file":"tool-names.d.ts","sourceRoot":"","sources":["../../../../extensions/pipa/core/tool-names.ts"],"names":[],"mappings":"AAAA,OAAO,CAAC,MAAM,CAAC;IACb,IAAI,SAAS,EAAE,GAAG,CAAC,MAAM,CAAC,GAAG,SAAS,CAAC;CACxC;AAED;;;GAGG;AACH,wBAAgB,gBAAgB,CAAC,IAAI,EAAE,MAAM,GAAG,IAAI,CAEnD;AAED,8CAA8C;AAC9C,wBAAgB,UAAU,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAEhD"}

@@ -1,6 +1,7 @@
 import type { ContextEvent } from '@earendil-works/pi-coding-agent';
 import type { ContextEventResult } from '@earendil-works/pi-coding-agent/extensions';
 import type { PipaApi } from '../../../interfaces';
+import { PipaBaseFeature } from '../../base-feature';
 /**
  * Colapsa no contexto LLM as notificações (nudges) customizadas duplicadas:
  * identidade = `customType` + hash do conteúdo, último vence, mantendo 1 resumo
@@ -8,7 +9,7 @@ import type { PipaApi } from '../../../interfaces';
  *
  * Idempotente e sem estado: afeta apenas o que vai ao LLM; a session permanece append-only.
  */
-export declare class ReminderCleaner {
+export declare class ReminderCleaner extends PipaBaseFeature {
     clean(event: ContextEvent, _pipa: PipaApi): ContextEventResult | void;
 }
 //# sourceMappingURL=cleaner.d.ts.map

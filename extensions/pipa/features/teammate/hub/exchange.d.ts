@@ -1,11 +1,13 @@
-import { PipaApi } from '../../../interfaces';
-import { TeammateInboxMessage, TeammateToolSchema } from '../teammate.entity';
+import { type PipaApi } from '../../../interfaces';
+import { type TeammateInboxMessage, TeammateToolSchema } from '../teammate.entity';
+import { TeammateRepository } from '../teammate.repository';
 /**
  * Mixin que fornece métodos de comunicação assíncrona (inbox) e síncrona (chat) entre agentes.
  */
 export declare class TeammateExchange {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
+    protected readonly repo: TeammateRepository;
+    constructor(pipa: PipaApi, repo: TeammateRepository);
     /**
      * Envia mensagem assíncrona para a caixa de entrada do teammate identificado pelo sessionId.
      * @param data Payload único da action 'send-inbox'.

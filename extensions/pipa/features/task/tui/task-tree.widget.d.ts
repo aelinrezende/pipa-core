@@ -1,11 +1,13 @@
 import type { Theme } from '@earendil-works/pi-coding-agent';
-import type { Task } from '../task.entity';
 import { AbstractTreeWidget, type TreeNode } from '../../../lib';
+import type { Task } from '../task.entity';
+import { TaskRepository } from '../task.repository';
 type TaskNode = TreeNode<Task>;
 export declare class TaskTreeWidget extends AbstractTreeWidget<Task> {
     private readonly getTasks;
     private readonly theme;
-    constructor(getTasks: () => Task[], theme: Theme);
+    protected readonly repo: TaskRepository;
+    constructor(getTasks: () => Task[], theme: Theme, repo: TaskRepository);
     private expanded;
     render(width: number): string[];
     invalidate(): void;

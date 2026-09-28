@@ -1,9 +1,12 @@
 import type { Teammate, TeammateStatus } from '../teammate.entity';
+import { TeammateRepository } from '../teammate.repository';
 /**
  * Registra intervalos periódicos vinculados a uma sessão Pi e centraliza o cleanup.
  * Pensado para hooks que reagem a eventos em cadência fixa (ex.: polling de inbox).
  */
 export declare class SessionIntervalRegistry {
+    readonly repo: TeammateRepository;
+    constructor(repo: TeammateRepository);
     private readonly intervals;
     /**
      * Executa callback a cada intervalMs, independentemente de existir teammate.
@@ -51,6 +54,7 @@ export declare class SessionIntervalRegistry {
  * Compartilhada via herança para evitar colisão de campos privados no ts-mixer.
  */
 export declare class TeammateSessionIntervalsHost {
+    constructor(teammateRepo: TeammateRepository);
     readonly sessionIntervals: SessionIntervalRegistry;
 }
 //# sourceMappingURL=session-interval.d.ts.map

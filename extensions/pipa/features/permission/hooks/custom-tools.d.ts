@@ -1,9 +1,10 @@
 import type { ToolCallEvent, ToolCallEventResult } from '@earendil-works/pi-coding-agent';
 import type { PipaApi } from '../../../interfaces';
+import { PipaBaseFeature } from '../../base-feature';
 /**
  * Hook dedicado a gerenciar permissões de ferramentas específicas (como task, todo, teammates e ask_user_question).
  */
-export declare class CustomToolsGuard {
+export declare class CustomToolsGuard extends PipaBaseFeature {
     /**
      * Valida permissões customizadas definidas em blockedForMain e outras regras de ciclo de vida.
      */

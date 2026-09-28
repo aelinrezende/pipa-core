@@ -1,12 +1,16 @@
-import { TeammateToolSchema } from '../teammate.entity';
 import { PipaApi } from '../../../interfaces';
+import { TaskRepository } from '../../task/task.repository';
+import { TeammateToolSchema } from '../teammate.entity';
+import { TeammateRepository } from '../teammate.repository';
 import { TeammateValidator } from './validator';
 /**
  * Mixin central de operações de negócio e gerenciamento para o TeammateHub.
  */
 export declare class TeammateCore extends TeammateValidator {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
+    protected readonly repo: TeammateRepository;
+    protected readonly taskRepo: TaskRepository;
+    constructor(pipa: PipaApi, repo: TeammateRepository, taskRepo: TaskRepository);
     /**
      * Lista teammates com sessão ativa.
      * @returns Lista de teammates online com status e tokens.

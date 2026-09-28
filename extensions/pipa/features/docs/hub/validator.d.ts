@@ -1,7 +1,12 @@
 import { DOCS_TOOL_NUDGES } from '../../../constants/docs';
+import type { PipaApi } from '../../../interfaces';
 import type { DocItem } from '../docs.entity';
+import { DocsRepository } from '../docs.repository';
 /** Valida regras de negócio antes de operações em documentos */
 export declare class DocsValidator {
+    readonly pipa: PipaApi;
+    protected readonly repo: DocsRepository;
+    constructor(pipa: PipaApi, repo: DocsRepository);
     /** Verifica se o documento existe e retorna. Throw PipaException se não encontrado. */
     protected canUpdate(code: string, action?: Exclude<keyof typeof DOCS_TOOL_NUDGES, 'publish'>): DocItem;
     /** Verifica se o documento existe para remoção. */
@@ -11,7 +16,7 @@ export declare class DocsValidator {
     /** Valida dados para criação. */
     protected canCreate({ title, parentCode }: Pick<DocItem, 'title' | 'parentCode'>): void;
     /**
-     * Valida reparent: pai deve existir e não pode ser descendente do próprio documento.
+     * Valida parent: pai deve existir e não pode ser descendente do próprio documento.
      * parentCode vazio/undefined torna o documento raiz (sem pai).
      */
     protected assertParentValid(code: string, parentCode?: string): void;

@@ -1,12 +1,14 @@
 import type { ExtensionAPI } from '@earendil-works/pi-coding-agent';
 import { PipaBaseFeature } from '../base-feature';
-import { TeammateExecutionContext, TeammateLifecycle, TeammateObservability, TeammateReminders, TeammateShutdownContext, TeammateTuiRegister } from './hooks';
-declare const TeammateFeature_base: import("ts-mixer/dist/types/types").Class<any[], PipaBaseFeature & TeammateExecutionContext & TeammateLifecycle & TeammateReminders & TeammateShutdownContext & TeammateObservability & TeammateTuiRegister, typeof PipaBaseFeature & typeof TeammateExecutionContext & typeof TeammateLifecycle & typeof TeammateReminders & typeof TeammateShutdownContext & typeof TeammateObservability & typeof TeammateTuiRegister>;
+import { TeammateRepository } from './teammate.repository';
 /**
  * Feature para gerenciamento de subagentes.
  */
-export declare class TeammateFeature extends TeammateFeature_base {
-    initialize(pi: ExtensionAPI): Promise<void> | void;
+export declare class TeammateFeature extends PipaBaseFeature {
+    initialize(pi: ExtensionAPI): {
+        teammate: {
+            retrieve: () => TeammateRepository;
+        };
+    };
 }
-export {};
 //# sourceMappingURL=teammate.feature.d.ts.map

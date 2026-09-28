@@ -1,40 +1,56 @@
+import type { PipaApi } from '../../../interfaces/pipa';
 import { TodoItem } from '../todo.entity';
 /**
- * Mantém e gerencia o estado em memória da lista de afazeres dos agentes.
+ * Diretório canônico dos afazeres, DERIVADO de `sessionId` (+ identidade).
+ *
+ * Preserva o path histórico do workspace do agente sem consumir
+ * `teammate.workspaceDir`:
+ * - main: `~/.pi/sessions/<sessionId>`
+ * - subagente: `~/.pi/sessions/<parentSessionId>/<sessionId>`
+ *
+ * Sem `parentSessionId` (identidade principal/indisponível), degrada para o
+ * caminho do main — nunca inventa um caminho alternativo silencioso.
+ */
+export declare function todoDir(pipa: PipaApi): string;
+/**
+ * Mantém e gerencia a lista de afazeres dos agentes.
+ *
+ * O `todo` é dado **privado da sessão** (arquivo por sessão), então a fonte de
+ * verdade é um repository LOCAL criado por sessão — não o registry global.
  */
 export declare class TodoState {
+    /** Repositories locais por sessão (a sessão é a partição natural do dado). */
+    private static readonly repositories;
+    /** Repository da sessão informada, criado sob demanda. */
+    private static repo;
     /**
-     * Recupera a store global de todos.
+     * Carrega os afazeres persistidos em disco (todo.json do diretório derivado
+     * de `sessionId`) para o repository da sessão, substituindo os itens atuais.
      */
-    static get store(): Map<string, TodoItem>;
+    static load(pipa: PipaApi): void;
     /**
-     * Carrega os afazeres persistidos em disco (todo.json do workspace do agente)
-     * para a store em memória, substituindo os itens atuais da sessão.
+     * Adiciona um novo item ao repository da sessão.
      */
-    static load(workspaceDir: string, sessionId: string): void;
+    static add(pipa: PipaApi, item: TodoItem): TodoItem;
     /**
-     * Adiciona um novo item ao estado.
+     * Atualiza parcialmente um item existente no repository da sessão.
      */
-    static add(item: TodoItem): TodoItem;
+    static update(pipa: PipaApi, id: string, data: Partial<TodoItem>): TodoItem | undefined;
     /**
-     * Atualiza parcialmente um item existente no estado.
+     * Remove permanentemente um item do repository da sessão através de seu ID.
      */
-    static update(id: string, data: Partial<TodoItem>): TodoItem | undefined;
+    static delete(pipa: PipaApi, id: string): void;
     /**
-     * Remove permanentemente um item do estado através de seu ID.
+     * Limpa integralmente a lista de afazeres do repository da sessão.
      */
-    static delete(id: string): void;
+    static clear(pipa: PipaApi): void;
     /**
-     * Limpa integralmente a lista de afazeres de um agente específico.
-     */
-    static clear(sessionId: string): void;
-    /**
-     * Recupera a lista contendo todos os itens atuais da lista de afazeres de um agente.
+     * Recupera os itens atuais da lista de afazeres da sessão.
      */
     static list(sessionId: string): TodoItem[];
     /**
      * Obtém um item específico da lista de afazeres por seu ID.
      */
-    static get(id: string): TodoItem | undefined;
+    static get(sessionId: string, id: string): TodoItem | undefined;
 }
 //# sourceMappingURL=state.d.ts.map

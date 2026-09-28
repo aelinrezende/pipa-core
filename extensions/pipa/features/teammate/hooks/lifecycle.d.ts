@@ -1,11 +1,18 @@
 import type { MessageEndEvent, MessageStartEvent, MessageUpdateEvent } from '@earendil-works/pi-coding-agent/extensions';
 import { type PipaApi } from '../../../interfaces';
-import { TeammateSessionIntervalsHost } from './session-interval';
+import { PipaBaseFeature } from '../../base-feature';
+import { TaskRepository } from '../../task/task.repository';
+import { TeammateRepository } from '../teammate.repository';
 /**
  * Hook responsável por gerenciar o ciclo de vida dos teammates,
  * incluindo transições de status, encerramento de sessão, tratamento de falhas e expiração.
  */
-export declare class TeammateLifecycle extends TeammateSessionIntervalsHost {
+export declare class TeammateLifecycle extends PipaBaseFeature {
+    readonly pipa: PipaApi;
+    protected readonly repo: TeammateRepository;
+    protected readonly taskRepo: TaskRepository;
+    constructor(pipa: PipaApi, repo: TeammateRepository, taskRepo: TaskRepository);
+    private readonly sessionIntervals;
     private failCount;
     removeInactiveTeammate(_: unknown, pipa: PipaApi): void;
     abortStuckTeammate(_: unknown, pipa: PipaApi): void;

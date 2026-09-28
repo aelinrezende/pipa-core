@@ -1,24 +1,24 @@
-import { TodoValidator } from './validator';
 import { PipaApi } from '../../../interfaces';
-import { FileManager } from '../../../lib';
 import { TodoItem, TodoToolSchema } from '../todo.entity';
+import { TodoValidator } from './validator';
 /**
  * Mixin central responsável pela manipulação persistente da lista de afazeres no TodoHub.
+ *
+ * A persistência é responsabilidade do repository local da sessão
+ * (`TodoState` → `createTodoRepository`): `add/update/delete` já persistem.
  */
 export declare class TodoCore extends TodoValidator {
     readonly pipa: PipaApi;
-    readonly fileManager: FileManager<TodoItem[]>;
     constructor(pipa: PipaApi);
     get sessionId(): string;
-    persist(): void;
     /**
-     * Atualiza um item de afazer existente e persiste as mudanças.
+     * Atualiza um item de afazer existente.
      * @param data Payload único da action 'update'.
      * @returns O item atualizado.
      */
     update({ id, action, ...updates }: TodoToolSchema<'update'>): TodoItem;
     /**
-     * Remove uma etapa da lista e persiste o novo estado.
+     * Remove uma etapa da lista.
      * @param data Payload único da action 'remove'.
      */
     remove({ id }: TodoToolSchema<'remove'>): void;

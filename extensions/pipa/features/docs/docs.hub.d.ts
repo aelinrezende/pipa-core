@@ -1,5 +1,6 @@
-import { PipaApi } from '../../interfaces';
+import { type PipaApi } from '../../interfaces';
 import { DocItem, DocsToolSchema } from './docs.entity';
+import { DocsRepository } from './docs.repository';
 import { DocsCore, DocsValidator } from './hub';
 declare const DocsHub_base: import("ts-mixer/dist/types/types").Class<any[], DocsValidator & DocsCore, typeof DocsValidator & typeof DocsCore>;
 /**
@@ -7,7 +8,8 @@ declare const DocsHub_base: import("ts-mixer/dist/types/types").Class<any[], Doc
  */
 export declare class DocsHub extends DocsHub_base {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
+    protected readonly repo: DocsRepository;
+    constructor(pipa: PipaApi, repo: DocsRepository);
     instantiate(data: DocsToolSchema<'instantiate'>): {
         action: "instantiate";
         title: string;

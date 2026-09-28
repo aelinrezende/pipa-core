@@ -5,6 +5,11 @@ export interface PipaApi extends Pick<ExtensionAPI, 'registerTool' | 'sendMessag
     events: EventBus;
     context: ExtensionContext;
     sessionId: string;
+    /**
+     * Identidade da sessão corrente, derivada do repositório de teammates.
+     * Sem a feature de teammate registrada, assume a identidade principal.
+     */
+    session: PipaSessionIdentity;
     toast: ToastService;
     /**
      * Envia uma notificação para o agente, podendo ser usada para solicitar ações ou informar sobre eventos.
@@ -24,5 +29,19 @@ export interface PipaApi extends Pick<ExtensionAPI, 'registerTool' | 'sendMessag
      * ou faz fallback para o modelo fornecido.
      */
     getAvailableModel(fallbackModel: Model<Api>): Model<Api>;
+}
+/**
+ * Identidade da sessão (papel, nome, profundidade na hierarquia).
+ *
+ * `role` usa union LITERAL de propósito — importar `TeammateRole` da feature
+ * criaria ciclo core→feature (R3).
+ */
+export interface PipaSessionIdentity {
+    id: string;
+    role: 'main' | 'subagent';
+    name: string;
+    parentSessionId?: string;
+    depth: number;
+    isStopping: boolean;
 }
 //# sourceMappingURL=pipa.d.ts.map

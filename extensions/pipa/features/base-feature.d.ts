@@ -1,13 +1,22 @@
-import type * as Pi from '@earendil-works/pi-coding-agent/extensions';
-import { PipaApi } from '../interfaces';
+import { type ExtensionAPI } from '@earendil-works/pi-coding-agent';
+import { type PipaApi } from '../interfaces';
+type Dependencies = {
+    [dependency: string]: {
+        retrieve: () => any;
+        dependencies?: Dependencies;
+    };
+};
 export declare abstract class PipaBaseFeature {
-    readonly pi: Pi.ExtensionAPI;
-    constructor(pi: Pi.ExtensionAPI);
-    pipa: PipaApi;
+    readonly pipa: PipaApi;
+    constructor(pipa: PipaApi);
     /**
      * Método de inicialização da feature, chamado uma vez durante o setup da extensão.
+     *
+     * @returns Um objeto contendo as dependências da feature, caso existam, ou void caso não haja dependências.
      */
-    initialize?(pi: Pi.ExtensionAPI): Promise<void> | void;
+    initialize?(pi: ExtensionAPI): Promise<void | Dependencies> | void | Dependencies;
 }
-export type PipaBaseFeatureConstructor = new (pi: Pi.ExtensionAPI) => PipaBaseFeature;
+export type PipaBaseFeatureConstructor = new (pipa: PipaApi) => PipaBaseFeature;
+export declare function visitDependencies(dependencies: Dependencies, visit: (name: string, dependency: Dependencies[string]) => void): void;
+export {};
 //# sourceMappingURL=base-feature.d.ts.map

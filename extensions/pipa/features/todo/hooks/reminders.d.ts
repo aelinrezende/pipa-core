@@ -1,9 +1,14 @@
 import { type PipaApi } from '../../../interfaces';
+import { PipaBaseFeature } from '../../base-feature';
+import { TeammateRepository } from '../../teammate/teammate.repository';
 /**
  * Hook responsável por gerenciar lembretes e notificações
  * relacionados aos afazeres (todos) pendentes.
  */
-export declare class TodoReminders {
+export declare class TodoReminders extends PipaBaseFeature {
+    readonly pipa: PipaApi;
+    protected readonly teammateRepo: TeammateRepository;
+    constructor(pipa: PipaApi, teammateRepo: TeammateRepository);
     /**
      * Orienta o colega a criar uma lista de afazeres caso não tenha nenhuma no início da iteração.
      */

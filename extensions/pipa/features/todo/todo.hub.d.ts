@@ -1,9 +1,9 @@
 import { PipaApi } from '../../interfaces';
+import { TodoCore, TodoValidator } from './hub';
 import { TodoItem, TodoToolSchema } from './todo.entity';
-import { TodoValidator, TodoCore } from './hub';
 declare const TodoHub_base: import("ts-mixer/dist/types/types").Class<any[], TodoValidator & TodoCore, typeof TodoValidator & typeof TodoCore>;
 /**
- * Gerencia a ferramenta local de TODO do agente (Subagente).
+ * Gerencia a lista local de afazeres do agente (subagente).
  * Responsável pela persistência em disco do passo-a-passo.
  *
  * Os métodos seguem a convenção do padrão backlog: nome camelCase da action

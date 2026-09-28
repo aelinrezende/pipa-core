@@ -1,21 +1,17 @@
 import type { PipaApi } from '../../../interfaces';
 import { DocListItem } from '../../../lib/doc';
 import { DocItem, DocsToolSchema } from '../docs.entity';
-import { DocsState } from './state';
+import { DocsRepository } from '../docs.repository';
 import { DocsValidator } from './validator';
-declare const DocsCore_base: import("ts-mixer/dist/types/types").Class<any[], DocsValidator & DocsState, typeof DocsValidator & typeof DocsState>;
 /**
  * Núcleo de CRUD dos documentos.
  * Síncrono. Persiste todos os itens como um único entries.json.
- * Leitura (list/get) delega para DocsState.
+ * O repository é resolvido sob demanda via Repositories.resolve('doc').
  */
-export declare class DocsCore extends DocsCore_base {
+export declare class DocsCore extends DocsValidator {
     readonly pipa: PipaApi;
-    constructor(pipa: PipaApi);
-    /** Persiste um único item no disco via DocsState (FileManager.save) */
-    persistOne(item: DocItem): void;
-    /** Busca item por código */
-    get(code: string): DocItem | undefined;
+    protected readonly repo: DocsRepository;
+    constructor(pipa: PipaApi, repo: DocsRepository);
     /** Lista itens com filtro e ordenação */
     list(sort: DocsToolSchema<'list'>): DocListItem[];
     /** Atualiza campo do frontmatter e persiste o entries.json */
@@ -34,5 +30,4 @@ export declare class DocsCore extends DocsCore_base {
         url: string;
     }>;
 }
-export {};
 //# sourceMappingURL=core.d.ts.map
