@@ -13,10 +13,10 @@ export { PI_EVENTS_SYMBOLS, PipaEvent } from './extensions/pipa/core/decorators/
 export { PipaException } from './extensions/pipa/core/errors/pipa-exception';
 export { buildPipaApi, pipa } from './extensions/pipa/core/pipa';
 export { PipaStore } from './extensions/pipa/cross-cutting/store';
-export { BacklogHub } from './extensions/pipa/features/backlog/backlog.hub';
-export { DocsHub } from './extensions/pipa/features/docs/docs.hub';
-export { TaskHub } from './extensions/pipa/features/task/task.hub';
-export { TeammateHub } from './extensions/pipa/features/teammate/teammate.hub';
+export { BacklogTool } from './extensions/pipa/features/backlog/backlog.tool';
+export { DocsTool } from './extensions/pipa/features/docs/docs.tool';
+export { TaskTool } from './extensions/pipa/features/task/task.tool';
+export { TeammateTool } from './extensions/pipa/features/teammate/teammate.tool';
 export type { RepositoryKey, RepositoryMap, RepositoryOf } from './extensions/pipa/interfaces/repository';
 export type { DomainEventHandler, DomainEventMap, DomainEventName, PipaPayload } from './extensions/pipa/core/events.types';
 export type { ToastService } from './extensions/pipa/core/toast';

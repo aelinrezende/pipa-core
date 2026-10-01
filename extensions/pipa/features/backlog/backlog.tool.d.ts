@@ -1,0 +1,26 @@
+import { type PipaApi } from '../../interfaces';
+import { BacklogItem, BacklogToolSchema } from './backlog.entity';
+import { BacklogRepository } from './backlog.repository';
+import { BacklogCore, BacklogValidator } from './tooling';
+declare const BacklogTool_base: import("ts-mixer/dist/types/types").Class<any[], BacklogValidator & BacklogCore, typeof BacklogValidator & typeof BacklogCore>;
+/**
+ * Gerencia o backlog local de tarefas do projeto.
+ * Persiste todos os itens como um único backlog.json.
+ */
+export declare class BacklogTool extends BacklogTool_base {
+    readonly pipa: PipaApi;
+    constructor(pipa: PipaApi, repo: BacklogRepository);
+    instantiate(data: BacklogToolSchema<'instantiate'>): {
+        action: "instantiate";
+        title: string;
+        type: import("./backlog.entity").BacklogItemType;
+        priority: import("./backlog.entity").BacklogPriority;
+        domain?: import("./backlog.entity").BacklogDomain[] | undefined;
+        parentCode?: string | undefined;
+        tags?: string[] | undefined;
+        metadata?: Record<string, unknown> | undefined;
+        body: string;
+    } & BacklogItem;
+}
+export {};
+//# sourceMappingURL=backlog.tool.d.ts.map

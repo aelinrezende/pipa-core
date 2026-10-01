@@ -33,5 +33,10 @@ export interface PipaConfig {
     teammate: PipaTeammateConfig;
     /** Opções visuais do painel de tarefas. */
     tasks: PipaTasksConfig;
+    /**
+     * Se verdadeiro, persiste mensagens de log e eventos do teammate em arquivos para auditoria ou análise posterior.
+     * @default false
+     * */
+    persistMessages?: boolean;
 }
 //# sourceMappingURL=config.d.ts.map

@@ -9,7 +9,7 @@ import type { PipaApi } from '../interfaces/pipa';
  *
  * Interface (e não type) para permitir declaration merging: features externas
  * estendem o mapa sem alterar o core — basta declarar a nova chave e emitir
- * no hub correspondente.
+ * no tool correspondente.
  */
 export interface DomainEventMap {
     /** Dispara na action `instantiate`; payload = documento persistido. */
