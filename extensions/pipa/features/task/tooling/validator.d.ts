@@ -53,7 +53,7 @@ export declare class TaskValidator {
     protected canComplete(id: string, teammate: Teammate, artifactFile?: string, force?: boolean): Task;
     /**
      * Valida se uma tarefa pode ser reaberta pelo teammate.
-     * Exige que a tarefa esteja concluída e que o solicitante seja o owner atual.
+     * Exige que a tarefa esteja concluída e que o solicitante seja o owner atual ou main.
      * Tarefas sem owner não podem ser reabertas (§4.1).
      */
     protected canReopen(id: string, teammate: Teammate): Task;
