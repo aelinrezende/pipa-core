@@ -54,10 +54,10 @@ export declare class TaskCore extends TaskValidator {
     complete({ id, artifactFile, force }: TaskToolSchema<'complete'>): Task;
     /**
      * Reabre uma tarefa concluída, devolvendo-a ao andamento e notificando o supervisor.
-     * @param data Payload único da action 'reopen': o ID da tarefa.
+     * @param data Payload da action 'reopen': o ID e, para tarefa alheia, o motivo.
      * @returns A tarefa reaberta.
      */
-    reopen({ id }: TaskToolSchema<'reopen'>): Task;
+    reopen({ id, reason }: TaskToolSchema<'reopen'>): Task;
     /**
      * Pausa uma tarefa em andamento, movendo-a para 'stopped'.
      * Cascata no status do épico.

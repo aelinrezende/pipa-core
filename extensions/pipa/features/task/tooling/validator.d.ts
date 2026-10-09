@@ -56,7 +56,7 @@ export declare class TaskValidator {
      * Exige que a tarefa esteja concluída e que o solicitante seja o owner atual ou main.
      * Tarefas sem owner não podem ser reabertas (§4.1).
      */
-    protected canReopen(id: string, teammate: Teammate): Task;
+    protected canReopen(id: string, teammate: Teammate, reason?: string): Task;
     /**
      * Valida se uma tarefa em andamento pode ser pausada pelo teammate.
      * Exige que o solicitante seja o owner atual.

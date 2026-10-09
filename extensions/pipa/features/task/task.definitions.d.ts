@@ -65,6 +65,7 @@ export declare const TASK_TOOL_SCHEMA: {
     reopen: Type.TObject<{
         action: Type.TLiteral<"reopen">;
         id: Type.TString;
+        reason: Type.TOptional<Type.TString>;
     }>;
     pause: Type.TObject<{
         action: Type.TLiteral<"pause">;
