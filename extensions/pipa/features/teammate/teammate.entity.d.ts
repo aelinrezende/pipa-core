@@ -51,8 +51,10 @@ export declare class Teammate {
     get isRunning(): boolean;
     /** Indica se o agente está sendo encerrado */
     get isStopping(): boolean;
+    /** Indica se o agente está compactando o contexto */
+    get isCompacting(): boolean;
 }
-export type TeammateStatus = 'running' | 'idle' | 'failed' | 'stopping';
+export type TeammateStatus = 'running' | 'idle' | 'failed' | 'stopping' | 'compacting';
 export interface TeammateFrontmatter {
     name: string;
     description: string;

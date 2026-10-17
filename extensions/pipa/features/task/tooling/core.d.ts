@@ -11,6 +11,7 @@ export declare class TaskCore extends TaskValidator {
     protected readonly repo: TaskRepository;
     protected readonly teammateRepo: TeammateRepository;
     constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
+    private compactTerminalSession;
     get({ id }: TaskToolSchema<'get'>): Task;
     /**
      * Lê uma tarefa pelo ID a partir do repository de tarefas.

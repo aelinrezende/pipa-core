@@ -21,6 +21,11 @@ export interface PipaTeammateConfig {
     concurrentlyModels: string[];
     /** Configuração de alternância de modelo. */
     cycling: PipaTeammateCyclingConfig;
+    /**
+     * Se verdadeiro, compacta a sessão do teammate ao final de ações terminais de tarefa (complete/pause).
+     * @default false
+     */
+    compactAfterTaskAction?: boolean;
 }
 /** Configurações da exibição de tarefas. */
 export interface PipaTasksConfig {
