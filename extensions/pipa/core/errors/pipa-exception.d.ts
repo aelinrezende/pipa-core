@@ -9,7 +9,7 @@ export declare class PipaException extends Error {
      * @param messages Linhas de erro exibidas abaixo do cabeçalho `[{action}]`.
      * @example
      * ```ts
-     * throw new PipaException(...TASK_TOOL_NUDGES.setup.failed, `Tarefa não encontrada.`);
+     * throw new PipaException(...TASK_TOOL_NUDGES.setup.failed, `Task not found.`);
      * ```
      */
     constructor(intent: string, ...messages: string[]);

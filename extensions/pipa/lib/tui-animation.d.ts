@@ -1,5 +1,11 @@
 import type { ChalkInstance } from 'chalk';
-export declare const ANIMATION_WORDS: string[];
+/**
+ * Palavras do spinner no locale ativo.
+ *
+ * Resolvido por chamada (não no import) para acompanhar `config.locale` sem
+ * exigir restart; `getLocale()` só lê o config resolvido.
+ */
+export declare function getAnimationWords(): string[];
 export declare const ANIMATION_COLORS: ChalkInstance[];
 export interface AnimatedTextOptions {
     /**
@@ -13,7 +19,7 @@ export interface AnimatedTextOptions {
     seedString: string;
     /**
      * Lista de palavras que serão rotacionadas.
-     * @default ANIMATION_WORDS
+     * @default getAnimationWords() — palavras do catálogo no locale ativo
      */
     words?: string[];
     /**

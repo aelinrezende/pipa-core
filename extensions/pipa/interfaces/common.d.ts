@@ -76,5 +76,25 @@ export type ValidationResult<T = void> = {
     error: ValidationErrorTuple;
 };
 export type KebabToCamel<S extends string> = S extends `${infer T}-${infer U}` ? `${Uncapitalize<T>}${Capitalize<KebabToCamel<U>>}` : Uncapitalize<S>;
+/**
+ * Tabela de profundidade usada para decrementar o cap `D` a cada nível recursivo.
+ */
+type Prev = [never, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+/**
+ * Gera a união dos dot-paths de folha de um objeto aninhado.
+ * Ex.: `Leaf<{ ui: { ok: string } }>` → `'ui.ok'`.
+ * @template T - O objeto a ser percorrido.
+ * @template D - Cap de profundidade da recursão, decrementado a cada nível.
+ * Ao esgotar, para de descer e retorna `string`. Necessário porque o TypeScript
+ * quebra com profundidade excessiva (TS2589) por volta de 40 níveis.
+ */
+export type Leaf<T, D extends number = 8> = [D] extends [never] ? string : {
+    [K in keyof T & string]: T[K] extends string ? K : T[K] extends Record<string, unknown> ? `${K}.${Leaf<T[K], Prev[D]>}` : never;
+}[keyof T & string];
+/**
+ * União dos dot-paths de folha de um objeto aninhado — atalho para `Leaf`.
+ * O catálogo concreto é instanciado no ponto de uso (`TKey<typeof ptBR>`).
+ */
+export type TKey<T, D extends number = 8> = Leaf<T, D>;
 export {};
 //# sourceMappingURL=common.d.ts.map

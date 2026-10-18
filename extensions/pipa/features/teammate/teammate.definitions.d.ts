@@ -31,13 +31,9 @@ export declare const TEAMMATE_TOOL_SCHEMA: {
         force: Type.TOptional<Type.TBoolean>;
     }>;
 };
-export declare const TEAMMATE_TOOL_ACTIONS_MESSAGE: {
-    instantiate: string;
-    list: string;
-    online: string;
-    chat: string;
-    'send-inbox': string;
-    'read-inbox': string;
-    dismiss: string;
-};
+/**
+ * Mensagem de progresso da ação da tool, exibida no model e na TUI (A11.2).
+ * Status de execução, nunca instrução — por isso é traduzível.
+ */
+export declare const getTeammateToolActionMessage: (action: keyof typeof TEAMMATE_TOOL_SCHEMA) => string;
 //# sourceMappingURL=teammate.definitions.d.ts.map

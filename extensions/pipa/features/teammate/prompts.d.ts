@@ -5,9 +5,6 @@ import { Task } from '../task/task.entity';
  * @param epics A lista de tarefas que possuem squad.
  */
 export declare function getSquadPrompt(squad?: string, epics?: Task[]): string;
-export declare const PIPA_AGENTS_PROMPT: {
-    main: string;
-    subagent: string;
-};
+export declare const SUBAGENT_POLICY_PROMPT: string;
 export declare const TEAMMATE_SPAWN_PROMPT: string;
 //# sourceMappingURL=prompts.d.ts.map

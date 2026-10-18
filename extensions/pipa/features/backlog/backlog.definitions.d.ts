@@ -55,13 +55,9 @@ export declare const BACKLOG_TOOL_SCHEMA: {
         code: Type.TString;
     }>;
 };
-export declare const BACKLOG_TOOL_ACTIONS_MESSAGE: {
-    list: string;
-    instantiate: string;
-    'update-frontmatter': string;
-    'update-body': string;
-    'update-metadata': string;
-    select: string;
-    remove: string;
-};
+/**
+ * Mensagem de progresso da ação da tool, exibida no model e na TUI (A11.2).
+ * Status de execução, nunca instrução — por isso é traduzível.
+ */
+export declare const getBacklogToolActionMessage: (action: keyof typeof BACKLOG_TOOL_SCHEMA) => string;
 //# sourceMappingURL=backlog.definitions.d.ts.map

@@ -60,14 +60,9 @@ export declare const DOCS_TOOL_SCHEMA: {
         action: Type.TLiteral<"publish">;
     }>;
 };
-export declare const DOCS_TOOL_ACTIONS_MESSAGE: {
-    instantiate: string;
-    list: string;
-    'update-frontmatter': string;
-    'update-body': string;
-    'update-metadata': string;
-    select: string;
-    remove: string;
-    publish: string;
-};
+/**
+ * Mensagem de progresso da ação da tool, exibida no model e na TUI (A11.2).
+ * Status de execução, nunca instrução — por isso é traduzível.
+ */
+export declare const getDocsToolActionMessage: (action: keyof typeof DOCS_TOOL_SCHEMA) => string;
 //# sourceMappingURL=docs.definitions.d.ts.map

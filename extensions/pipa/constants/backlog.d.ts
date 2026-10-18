@@ -17,33 +17,33 @@ export declare const BACKLOG_FRONTMATTER_FIELDS: BacklogItemFrontmatter[];
 export declare const BACKLOG_TOOL_NUDGES: {
     list: {
         code: string;
-        readonly failed: readonly [string, 'Falha ao listar backlog'];
-        readonly success: readonly [string, 'Backlog listado com sucesso'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     create: {
         code: string;
-        readonly failed: readonly [string, 'Falha ao criar item no backlog'];
-        readonly success: readonly [string, 'Item criado no backlog'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     'update-frontmatter': {
         code: string;
-        readonly failed: readonly [string, 'Falha ao atualizar frontmatter'];
-        readonly success: readonly [string, 'Frontmatter atualizado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     'update-body': {
         code: string;
-        readonly failed: readonly [string, 'Falha ao atualizar corpo markdown'];
-        readonly success: readonly [string, 'Corpo markdown atualizado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     'update-metadata': {
         code: string;
-        readonly failed: readonly [string, 'Falha ao atualizar metadata'];
-        readonly success: readonly [string, 'Metadata atualizado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     select: {
         code: string;
-        readonly failed: readonly [string, 'Falha na busca'];
-        readonly success: readonly [string, 'Busca concluída'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
 };
 //# sourceMappingURL=backlog.d.ts.map

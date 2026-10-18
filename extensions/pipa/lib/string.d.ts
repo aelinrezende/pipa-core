@@ -18,7 +18,7 @@ export declare const paragraph: (...input: string[]) => string;
  * @param values Objeto contendo os valores para substituição.
  * @returns String com os valores interpolados.
  */
-export declare const interpolate: (template: string, values: Record<string, any>) => string;
+export declare const interpolate: (template: string, values: Record<string, unknown>) => string;
 /** Normaliza quebras de linha */
 export declare const normalizeLineBreaks: (text: string) => string;
 /**

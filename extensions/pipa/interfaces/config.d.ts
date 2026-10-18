@@ -34,6 +34,11 @@ export interface PipaTasksConfig {
 }
 /** Configuração principal do pipa.jsonl. */
 export interface PipaConfig {
+    /**
+     * Idioma da interface e das mensagens do agente. Suportados: 'en' | 'pt-BR'.
+     * @default 'en'
+     */
+    locale?: 'en' | 'pt-BR';
     /** Opções e comportamentos dos agentes da equipe. */
     teammate: PipaTeammateConfig;
     /** Opções visuais do painel de tarefas. */

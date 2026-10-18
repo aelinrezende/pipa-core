@@ -84,5 +84,11 @@ export declare const TASK_TOOL_SCHEMA: {
         squad: Type.TString;
     }>;
 };
-export declare const TASK_TOOL_ACTIONS_MESSAGE: Record<keyof typeof TASK_TOOL_SCHEMA, string>;
+/**
+ * Mensagem de status de cada ação da tool, resolvida por locale (A11.2).
+ *
+ * A chave é exatamente a ação de `TASK_TOOL_SCHEMA`, então adicionar ação nova
+ * ao schema sem entrada no catálogo quebra o build.
+ */
+export declare function getTaskToolActionMessage(action: keyof typeof TASK_TOOL_SCHEMA): string;
 //# sourceMappingURL=task.definitions.d.ts.map

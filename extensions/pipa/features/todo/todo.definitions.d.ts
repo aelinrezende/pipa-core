@@ -21,11 +21,9 @@ export declare const TODO_TOOL_SCHEMA: {
         action: Type.TLiteral<"clear">;
     }>;
 };
-export declare const TODO_TOOL_ACTIONS_MESSAGE: {
-    instantiate: string;
-    update: string;
-    remove: string;
-    list: string;
-    clear: string;
-};
+/**
+ * Mensagem de progresso da ação da tool, exibida no model e na TUI (A11.2).
+ * Status de execução, nunca instrução — por isso é traduzível.
+ */
+export declare const getTodoToolActionMessage: (action: keyof typeof TODO_TOOL_SCHEMA) => string;
 //# sourceMappingURL=todo.definitions.d.ts.map

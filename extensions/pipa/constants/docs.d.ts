@@ -1,46 +1,45 @@
-/** Comprimento máximo do summary dos documentos */
 export declare const DOC_SUMMARY_LENGTH = 200;
 /** Mensagens contextuais para cada ação da tool docs */
 export declare const DOCS_TOOL_NUDGES: {
     create: {
         code: string;
-        readonly failed: readonly [string, 'Falha ao criar documento'];
-        readonly success: readonly [string, 'Documento criado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     list: {
         code: string;
-        readonly failed: readonly [string, 'Falha ao listar documentos'];
-        readonly success: readonly [string, 'Documentos listados'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     'update-frontmatter': {
         code: string;
-        readonly failed: readonly [string, 'Falha ao atualizar frontmatter'];
-        readonly success: readonly [string, 'Frontmatter atualizado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     'update-body': {
         code: string;
-        readonly failed: readonly [string, 'Falha ao atualizar corpo markdown'];
-        readonly success: readonly [string, 'Corpo markdown atualizado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     'update-metadata': {
         code: string;
-        readonly failed: readonly [string, 'Falha ao atualizar metadata'];
-        readonly success: readonly [string, 'Metadata atualizado'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     select: {
         code: string;
-        readonly failed: readonly [string, 'Falha na busca'];
-        readonly success: readonly [string, 'Busca concluída'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     remove: {
         code: string;
-        readonly failed: readonly [string, 'Falha ao remover documento'];
-        readonly success: readonly [string, 'Documento removido'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
     publish: {
         code: string;
-        readonly failed: readonly [string, 'Falha ao publicar documentação'];
-        readonly success: readonly [string, 'Documentação publicada'];
+        readonly failed: readonly [string, string];
+        readonly success: readonly [string, string];
     };
 };
 //# sourceMappingURL=docs.d.ts.map
