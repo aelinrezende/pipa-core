@@ -12,6 +12,7 @@ export { config } from './extensions/pipa/core/config';
 export { PI_EVENTS_SYMBOLS, PipaEvent } from './extensions/pipa/core/decorators/events';
 export { PipaException } from './extensions/pipa/core/errors/pipa-exception';
 export { buildPipaApi, pipa } from './extensions/pipa/core/pipa';
+export { buildToolResult, renderToolResult } from './extensions/pipa/core/tool';
 export { PipaStore } from './extensions/pipa/cross-cutting/store';
 export { BacklogTool } from './extensions/pipa/features/backlog/backlog.tool';
 export { DocsTool } from './extensions/pipa/features/docs/docs.tool';

@@ -28,6 +28,7 @@ export declare const TEAMMATE_TOOL_SCHEMA: {
         action: Type.TLiteral<"dismiss">;
         teammateId: Type.TString;
         reason: Type.TString;
+        force: Type.TOptional<Type.TBoolean>;
     }>;
 };
 export declare const TEAMMATE_TOOL_ACTIONS_MESSAGE: {

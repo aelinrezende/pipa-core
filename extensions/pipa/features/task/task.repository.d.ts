@@ -15,6 +15,13 @@ export declare class TaskRepository extends PipaRepository<Task> {
     /** Remove todas as tarefas (uma a uma, para persistir cada remoção). */
     clear(): void;
     /**
+     * Remove as tarefas não concluídas de um dono e sincroniza o status de seus pais.
+     *
+     * @param sessionId Sessão do dono das tarefas.
+     * @param onRemove Callback opcional invocado a cada tarefa removida.
+     */
+    removeOpenByOwner(sessionId: string, onRemove?: (task: Task) => void): Set<string>;
+    /**
      * Verifica se uma tarefa não possui bloqueio pendente.
      * Bloqueios `hard` exigem a dependente concluída; `soft` apenas sinalizam.
      * Dependência inexistente não bloqueia.

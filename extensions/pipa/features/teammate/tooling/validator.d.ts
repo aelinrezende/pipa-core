@@ -20,7 +20,7 @@ export declare class TeammateValidator {
      * Valida se um agente pode ser desligado.
      * Impede exclusões não autorizadas (role), de apagar o agente principal ou agentes trabalhando ativamente.
      */
-    protected canDismiss(sessionId: string, parentSessionId: string, parentRole: string): {
+    protected canDismiss(sessionId: string, parentSessionId: string, parentRole: string, force?: boolean): {
         teammate: Teammate;
         allToDismiss: Teammate[];
     };
