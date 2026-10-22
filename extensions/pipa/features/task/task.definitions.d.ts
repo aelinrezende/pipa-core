@@ -12,6 +12,7 @@ export declare const TASK_TOOL_SCHEMA: {
             parentTaskId: Type.TOptional<Type.TString>;
             squad: Type.TOptional<Type.TString>;
             outputDirectory: Type.TOptional<Type.TString>;
+            status: Type.TOptional<Type.TUnion<boolean[]>>;
         }>;
     }>;
     get: Type.TObject<{
@@ -54,8 +55,8 @@ export declare const TASK_TOOL_SCHEMA: {
         id: Type.TString;
         force: Type.TOptional<Type.TBoolean>;
     }>;
-    claim: Type.TObject<{
-        action: Type.TLiteral<"claim">;
+    start: Type.TObject<{
+        action: Type.TLiteral<"start">;
         id: Type.TString;
     }>;
     complete: Type.TObject<{

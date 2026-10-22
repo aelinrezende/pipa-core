@@ -39,11 +39,9 @@ export declare class TaskValidator {
      */
     protected canRemove(id: string, teammate: Teammate, force?: boolean): Task;
     /**
-     * Valida se uma tarefa pode ser reivindicada pelo teammate.
-     * Verifica o estado pendente da tarefa, se o solicitante é elegível (criador online → self-only;
-     * criador offline → fallback via role) e se existem dependências hard não concluídas.
+     * Valida se uma tarefa pendente atribuída ao solicitante pode ser iniciada.
      */
-    protected canClaim(id: string, teammate: Teammate): Task;
+    protected canStart(id: string, teammate: Teammate): Task;
     /**
      * Valida se uma tarefa pode ser concluída.
      * Verifica a existência da tarefa, exigência do artefato, se o usuário

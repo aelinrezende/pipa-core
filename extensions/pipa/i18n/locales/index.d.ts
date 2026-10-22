@@ -28,10 +28,10 @@ export declare const catalogs: {
                 instantiate: string;
                 get: string;
                 setup: string;
+                start: string;
                 update: string;
                 list: string;
                 remove: string;
-                claim: string;
                 complete: string;
                 reopen: string;
                 pause: string;
@@ -41,7 +41,6 @@ export declare const catalogs: {
             };
             taskCompleted: string;
             parentTaskCompleted: string;
-            parentTaskClaimed: string;
             parentTaskReopened: string;
             blockedDependents: string;
             taskReopenedBySupervisor: string;
@@ -50,7 +49,6 @@ export declare const catalogs: {
             taskPaused: string;
             parentTaskResumed: string;
             taskResumed: string;
-            taskAvailable: string;
             nudges: {
                 get: {
                     failed: string;
@@ -59,7 +57,7 @@ export declare const catalogs: {
                     failed: string;
                     denied: string;
                 };
-                claim: {
+                start: {
                     failed: string;
                 };
                 instantiate: {
@@ -94,15 +92,14 @@ export declare const catalogs: {
                 notFound: string;
                 nameTaken: string;
                 dependencyMissing: string;
+                startForbidden: string;
+                startBlocked: string;
+                startNotPending: string;
                 setupWrongStatus: string;
                 updateForbidden: string;
                 dependencyCycle: string;
                 removeInProgress: string;
                 forceForbidden: string;
-                claimNotTeammate: string;
-                claimNotPending: string;
-                claimNotOwner: string;
-                claimHardDependencies: string;
                 forceOnlyMain: string;
                 artifactFileRequired: string;
                 artifactFileNotFound: string;
@@ -401,10 +398,10 @@ export declare const catalogs: {
                 instantiate: string;
                 get: string;
                 setup: string;
+                start: string;
                 update: string;
                 list: string;
                 remove: string;
-                claim: string;
                 complete: string;
                 reopen: string;
                 pause: string;
@@ -414,7 +411,6 @@ export declare const catalogs: {
             };
             taskCompleted: string;
             parentTaskCompleted: string;
-            parentTaskClaimed: string;
             parentTaskReopened: string;
             blockedDependents: string;
             taskReopenedBySupervisor: string;
@@ -423,7 +419,6 @@ export declare const catalogs: {
             taskPaused: string;
             parentTaskResumed: string;
             taskResumed: string;
-            taskAvailable: string;
             nudges: {
                 get: {
                     failed: string;
@@ -432,7 +427,7 @@ export declare const catalogs: {
                     failed: string;
                     denied: string;
                 };
-                claim: {
+                start: {
                     failed: string;
                 };
                 instantiate: {
@@ -467,15 +462,14 @@ export declare const catalogs: {
                 notFound: string;
                 nameTaken: string;
                 dependencyMissing: string;
+                startForbidden: string;
+                startBlocked: string;
+                startNotPending: string;
                 setupWrongStatus: string;
                 updateForbidden: string;
                 dependencyCycle: string;
                 removeInProgress: string;
                 forceForbidden: string;
-                claimNotTeammate: string;
-                claimNotPending: string;
-                claimNotOwner: string;
-                claimHardDependencies: string;
                 forceOnlyMain: string;
                 artifactFileRequired: string;
                 artifactFileNotFound: string;

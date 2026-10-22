@@ -5,7 +5,7 @@ import { PipaBaseFeature } from '../../base-feature';
 import { TeammateRepository } from '../../teammate/teammate.repository';
 import { TaskRepository } from '../task.repository';
 /**
- * Bloqueia qualquer tool call feita sem uma tarefa ativa reivindicada
+ * Bloqueia qualquer tool call feita sem uma tarefa ativa
  * e colapsa o loop de tentativas repetidas no contexto enviado ao LLM,
  * substituindo as mensagens bloqueadas por um único aviso consolidado.
  */
@@ -15,7 +15,7 @@ export declare class TaskGuard extends PipaBaseFeature {
     protected readonly teammateRepo: TeammateRepository;
     constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
     private readonly blockedToolCallIds;
-    guardUnclaimedToolCall({ toolName, toolCallId }: ToolCallEvent, pipa: PipaApi): ToolCallEventResult | void;
+    guardInactiveToolCall({ toolName, toolCallId }: ToolCallEvent, pipa: PipaApi): ToolCallEventResult | void;
     collapseBlockedLoop(event: ContextEvent, _pipa: PipaApi): ContextEventResult | void;
 }
 //# sourceMappingURL=guard.d.ts.map

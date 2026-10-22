@@ -44,10 +44,10 @@ export declare const ptBR: {
             instantiate: string;
             get: string;
             setup: string;
+            start: string;
             update: string;
             list: string;
             remove: string;
-            claim: string;
             complete: string;
             reopen: string;
             pause: string;
@@ -57,7 +57,6 @@ export declare const ptBR: {
         };
         taskCompleted: string;
         parentTaskCompleted: string;
-        parentTaskClaimed: string;
         parentTaskReopened: string;
         blockedDependents: string;
         taskReopenedBySupervisor: string;
@@ -66,7 +65,6 @@ export declare const ptBR: {
         taskPaused: string;
         parentTaskResumed: string;
         taskResumed: string;
-        taskAvailable: string;
         nudges: {
             get: {
                 failed: string;
@@ -75,7 +73,7 @@ export declare const ptBR: {
                 failed: string;
                 denied: string;
             };
-            claim: {
+            start: {
                 failed: string;
             };
             instantiate: {
@@ -110,15 +108,14 @@ export declare const ptBR: {
             notFound: string;
             nameTaken: string;
             dependencyMissing: string;
+            startForbidden: string;
+            startBlocked: string;
+            startNotPending: string;
             setupWrongStatus: string;
             updateForbidden: string;
             dependencyCycle: string;
             removeInProgress: string;
             forceForbidden: string;
-            claimNotTeammate: string;
-            claimNotPending: string;
-            claimNotOwner: string;
-            claimHardDependencies: string;
             forceOnlyMain: string;
             artifactFileRequired: string;
             artifactFileNotFound: string;

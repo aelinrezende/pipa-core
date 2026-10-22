@@ -8,7 +8,7 @@ declare const TaskTool_base: import("ts-mixer/dist/types/types").Class<any[], Ta
  * Gerencia as tarefas atribuídas aos teammates.
  *
  * Os métodos seguem a convenção do padrão backlog: nome camelCase da action
- * (instantiate/get/list/setup/update/remove/claim/complete/listBySquad/squadStatus)
+ * (instantiate/get/list/setup/start/update/remove/complete/listBySquad/squadStatus)
  * recebendo payload único tipado.
  */
 export declare class TaskTool extends TaskTool_base {

@@ -42,11 +42,9 @@ export declare class TaskCore extends TaskValidator {
      */
     remove({ id, force }: TaskToolSchema<'remove'>): void;
     /**
-     * Reivindica e associa uma tarefa ao subagente atual, colocando-a em andamento.
-     * @param data Payload único da action 'claim'.
-     * @returns A tarefa reivindicada.
+     * Inicia uma tarefa pendente já atribuída ao solicitante.
      */
-    claim({ id }: TaskToolSchema<'claim'>): Task;
+    start({ id }: TaskToolSchema<'start'>): Task;
     /**
      * Conclui uma tarefa, sinalizando seu encerramento e notificando o supervisor.
      * @param data Payload único da action 'complete'.
@@ -73,9 +71,5 @@ export declare class TaskCore extends TaskValidator {
      * @returns A tarefa retomada.
      */
     resume({ id }: TaskToolSchema<'resume'>): Task;
-    /**
-     * Proativamente avisa subagentes que estão ociosos sobre novas tarefas disponíveis.
-     */
-    notifyEligibleIdleTeammates(): void;
 }
 //# sourceMappingURL=core.d.ts.map

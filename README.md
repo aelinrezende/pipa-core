@@ -95,9 +95,9 @@ Besides the tool, it handles execution context, shutdown context, observability,
 
 Operational tasks. Unlike the backlog, tasks are ephemeral: they exist to hand work to teammates during a run, not to track the project across sessions. They are persisted through `TaskRepository` and loaded by the repository when needed.
 
-The tool supports `instantiate`, `get`, `setup`, `update`, `list`, `list-by-squad`, `squad-status`, `claim`, `complete`, `reopen`, `pause`, `resume`, and `remove`. Tasks carry a `squad`, a `parentTaskId`, and typed dependencies: `hard` (blocks execution outright) and `soft` (informational warning).
+The tool supports `instantiate`, `get`, `setup`, `update`, `list`, `list-by-squad`, `squad-status`, `start`, `complete`, `reopen`, `pause`, `resume`, and `remove`. Tasks carry a `squad`, a `parentTaskId`, and typed dependencies: `hard` (blocks execution outright) and `soft` (informational warning).
 
-The feature includes a guard that blocks modifying tools while the agent has no claimed task, reminders for available work, and a TUI panel. It emits `task_created`, `task_claimed`, `task_updated`, `task_completed`, and `task_removed`.
+The feature includes a guard that blocks modifying tools while the agent has no active task, and a TUI panel. and a TUI panel. It emits `task_created`, `task_updated`, `task_completed`, and `task_removed`.
 
 `TaskFeature` is required by `TeammateFeature` — see above.
 
@@ -191,8 +191,7 @@ this.pipa.events.emit('doc_created', item);
 | Backlog  | `backlog_updated`  | `BacklogItem`                  | `update-frontmatter`, `update-body`, `update-metadata` |
 | Backlog  | `backlog_removed`  | `BacklogItem`                  | `remove`                                               |
 | Task     | `task_created`     | `Task`                         | `instantiate`                                          |
-| Task     | `task_claimed`     | `Task`                         | `claim`                                                |
-| Task     | `task_updated`     | `Task`                         | `setup`, `update`, `pause`, `resume`                   |
+| Task     | Task               | `task_updated`                 | `Task`                                                 | `setup`, `update`, `pause`, `resume` |
 | Task     | `task_completed`   | `Task`                         | `complete`                                             |
 | Task     | `task_removed`     | `Task`                         | `remove`                                               |
 | Todo     | `todo_created`     | `TodoItem`                     | `instantiate`                                          |

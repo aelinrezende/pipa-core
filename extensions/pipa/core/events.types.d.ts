@@ -31,9 +31,7 @@ export interface DomainEventMap {
     backlog_removed: BacklogItem;
     /** Dispara na action `instantiate`; payload = tarefa persistida. */
     task_created: Task;
-    /** Dispara na action `claim`; payload = tarefa reivindicada. */
-    task_claimed: Task;
-    /** Dispara nas actions `setup` e `update`; payload = tarefa atualizada. */
+    /** Dispara nas actions `setup`, `start` e `update`; payload = tarefa atualizada. */
     task_updated: Task;
     /** Dispara na action `complete`; payload = tarefa concluída. */
     task_completed: Task;

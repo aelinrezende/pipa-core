@@ -1,6 +1,5 @@
 import { PipaRepository } from '../../core/repository';
 import { type PipaApi } from '../../interfaces';
-import type { Teammate } from '../teammate/teammate.entity';
 import { TeammateRepository } from '../teammate/teammate.repository';
 import { Task, TaskStatus } from './task.entity';
 declare module '../../interfaces/repository' {
@@ -27,8 +26,6 @@ export declare class TaskRepository extends PipaRepository<Task> {
      * Dependência inexistente não bloqueia.
      */
     isUnblocked(task: Task): boolean;
-    isEligibleForTask(task: Task, teammate: Pick<Teammate, 'sessionId' | 'name'>): boolean;
-    listAvailable(): Task[];
     listByOwner(sessionId: string): Task[];
     listActive(): Task[];
     isActiveStatus(task: Task): boolean;
@@ -44,11 +41,6 @@ export declare class TaskRepository extends PipaRepository<Task> {
      * Lista as tarefas principais (épicos) de todos os squads em andamento ou registrados.
      */
     getActiveSquads(): Task[];
-    /**
-     * Retorna as dependências `hard` não concluídas de uma tarefa.
-     * Dependências inexistentes são descartadas.
-     */
-    getUncompletedHardDependencies(task: Task): Task[];
     hasUncompletedHardDependency(task: Task): boolean;
     /**
      * Calcula o novo status de uma tarefa pai a partir das filhas.

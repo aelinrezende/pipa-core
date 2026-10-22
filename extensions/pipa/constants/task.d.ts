@@ -15,9 +15,9 @@ export declare const TASK_TOOL_NUDGES: {
         readonly denied: readonly [string, string];
     };
     /**
-     * Nudges relacionados à reivindicação de tarefas por colegas (subagents).
+     * Nudges relacionados ao início de tarefas atribuídas.
      */
-    claim: {
+    start: {
         code: string;
         readonly failed: readonly [string, string];
     };
