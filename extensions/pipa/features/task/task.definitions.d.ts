@@ -11,6 +11,7 @@ export declare const TASK_TOOL_SCHEMA: {
             }>>;
             parentTaskId: Type.TOptional<Type.TString>;
             squad: Type.TOptional<Type.TString>;
+            outputDirectory: Type.TOptional<Type.TString>;
         }>;
     }>;
     get: Type.TObject<{
@@ -41,6 +42,7 @@ export declare const TASK_TOOL_SCHEMA: {
             }>>>;
             parentTaskId: Type.TOptional<Type.TString>;
             squad: Type.TOptional<Type.TString>;
+            outputDirectory: Type.TOptional<Type.TString>;
         }>;
     }>;
     list: Type.TObject<{
@@ -70,6 +72,7 @@ export declare const TASK_TOOL_SCHEMA: {
     pause: Type.TObject<{
         action: Type.TLiteral<"pause">;
         id: Type.TString;
+        reason: Type.TString;
     }>;
     resume: Type.TObject<{
         action: Type.TLiteral<"resume">;

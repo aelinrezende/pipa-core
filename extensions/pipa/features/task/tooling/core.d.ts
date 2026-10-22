@@ -65,7 +65,7 @@ export declare class TaskCore extends TaskValidator {
      * @param data Payload único da action 'pause': o ID da tarefa.
      * @returns A tarefa pausada.
      */
-    pause({ id }: TaskToolSchema<'pause'>): Task;
+    pause({ id, reason }: TaskToolSchema<'pause'>): Task;
     /**
      * Retoma uma tarefa pausada, devolvendo-a para 'in-progress'.
      * Preserva o owner atual (§D13). Simétrico a 'pause'.

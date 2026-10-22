@@ -30,8 +30,12 @@ export declare class Task {
     squad?: string;
     /** Diretório onde os arquivos relacionados à tarefa serão armazenados */
     directory: string;
+    /** Diretório autorizado para artefatos da tarefa */
+    outputDirectory: string;
     /** Caminho do artefato que comprova o resultado final da tarefa */
     artifactFile?: string;
+    /** Motivo auditável para uma pausa por bloqueio externo */
+    pauseReason?: string;
     /** ID da sessão/agente criador da tarefa */
     creatorId: string;
     /** Nome do teammate capaz de executar a tarefa */

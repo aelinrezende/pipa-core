@@ -57,7 +57,6 @@ export declare const ptBR: {
         };
         taskCompleted: string;
         parentTaskCompleted: string;
-        taskCompletionSummary: string;
         parentTaskClaimed: string;
         parentTaskReopened: string;
         blockedDependents: string;
@@ -123,6 +122,8 @@ export declare const ptBR: {
             forceOnlyMain: string;
             artifactFileRequired: string;
             artifactFileNotFound: string;
+            artifactFileInvalid: string;
+            pauseReasonRequired: string;
             completeNotOwner: string;
             notCompleted: string;
             reopenNoOwner: string;
@@ -142,6 +143,9 @@ export declare const ptBR: {
     };
     teammate: {
         label: string;
+        spawnOnline: string;
+        spawnMessages: string;
+        spawnGoal: string;
         status: {
             running: string;
             idle: string;

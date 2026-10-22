@@ -1,3 +1,5 @@
+/** Returns whether a path points to a regular, readable file. */
+export declare function isReadableFile(filename: string): boolean;
 export declare class FileManager<T extends Record<string, any> | Record<string, any>[]> {
     readonly folder: string;
     constructor(folder: string);

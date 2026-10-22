@@ -62,7 +62,7 @@ export declare class TaskValidator {
      * Exige que o solicitante seja o owner atual.
      * Tarefas sem owner não podem ser pausadas (§4.1).
      */
-    protected canPause(id: string, teammate: Teammate): Task;
+    protected canPause(id: string, teammate: Teammate, reason: string): Task;
     /**
      * Valida se uma tarefa pausada pode ser retomada pelo teammate.
      * Exige que o solicitante seja o owner atual.
