@@ -55,6 +55,19 @@ export declare const ptBR: {
             'list-by-squad': string;
             'squad-status': string;
         };
+        taskCompleted: string;
+        parentTaskCompleted: string;
+        taskCompletionSummary: string;
+        parentTaskClaimed: string;
+        parentTaskReopened: string;
+        blockedDependents: string;
+        taskReopenedBySupervisor: string;
+        taskReopened: string;
+        parentTaskPaused: string;
+        taskPaused: string;
+        parentTaskResumed: string;
+        taskResumed: string;
+        taskAvailable: string;
         nudges: {
             get: {
                 failed: string;
@@ -155,6 +168,7 @@ export declare const ptBR: {
             steps: string;
             dismissReason: string;
         };
+        newMessage: string;
         nudges: {
             instantiate: {
                 failed: string;

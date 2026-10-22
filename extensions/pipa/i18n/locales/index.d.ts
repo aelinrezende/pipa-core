@@ -39,6 +39,19 @@ export declare const catalogs: {
                 'list-by-squad': string;
                 'squad-status': string;
             };
+            taskCompleted: string;
+            parentTaskCompleted: string;
+            taskCompletionSummary: string;
+            parentTaskClaimed: string;
+            parentTaskReopened: string;
+            blockedDependents: string;
+            taskReopenedBySupervisor: string;
+            taskReopened: string;
+            parentTaskPaused: string;
+            taskPaused: string;
+            parentTaskResumed: string;
+            taskResumed: string;
+            taskAvailable: string;
             nudges: {
                 get: {
                     failed: string;
@@ -139,6 +152,7 @@ export declare const catalogs: {
                 steps: string;
                 dismissReason: string;
             };
+            newMessage: string;
             nudges: {
                 instantiate: {
                     failed: string;
@@ -394,6 +408,19 @@ export declare const catalogs: {
                 'list-by-squad': string;
                 'squad-status': string;
             };
+            taskCompleted: string;
+            parentTaskCompleted: string;
+            taskCompletionSummary: string;
+            parentTaskClaimed: string;
+            parentTaskReopened: string;
+            blockedDependents: string;
+            taskReopenedBySupervisor: string;
+            taskReopened: string;
+            parentTaskPaused: string;
+            taskPaused: string;
+            parentTaskResumed: string;
+            taskResumed: string;
+            taskAvailable: string;
             nudges: {
                 get: {
                     failed: string;
@@ -494,6 +521,7 @@ export declare const catalogs: {
                 steps: string;
                 dismissReason: string;
             };
+            newMessage: string;
             nudges: {
                 instantiate: {
                     failed: string;
