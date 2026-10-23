@@ -44,11 +44,14 @@ export declare class TaskValidator {
     protected canStart(id: string, teammate: Teammate): Task;
     /**
      * Valida se uma tarefa pode ser concluída.
-     * Verifica a existência da tarefa, exigência do artefato, se o usuário
-     * é o dono da tarefa (ou supervisor/main no caso de force) e subtarefas.
+     * Verifica a existência e o estado da tarefa, se o usuário é o dono
+     * (ou supervisor/main no caso de force) e se há subtarefas pendentes.
      * A orientação de force só é exibida para main (não-main não pode usar force).
      */
-    protected canComplete(id: string, teammate: Teammate, artifactFile?: string, force?: boolean): Task;
+    protected canComplete(id: string, teammate: Teammate, artifactName: string, force?: boolean): {
+        task: Task;
+        artifactFile: string;
+    };
     /**
      * Valida se uma tarefa pode ser reaberta pelo teammate.
      * Exige que a tarefa esteja concluída e que o solicitante seja o owner atual ou main.

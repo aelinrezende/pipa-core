@@ -15,7 +15,6 @@ export declare class TaskReminders extends PipaBaseFeature {
     protected readonly teammateRepo: TeammateRepository;
     constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
     private readonly sessionIntervals;
-    private readonly lastCreatorNudge;
     private readonly lastTeammateNudge;
     nudgeIdleTeammatesWithPendingTasks(): void;
     shutdown(_: unknown, pipa: PipaApi): void;

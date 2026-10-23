@@ -4,7 +4,7 @@ export declare const TEAMMATE_TOOL_SCHEMA: {
         action: Type.TLiteral<"instantiate">;
         name: Type.TString;
         goal: Type.TString;
-        outputDirectory: Type.TOptional<Type.TString>;
+        outputDirectory: Type.TString;
     }>;
     list: Type.TObject<{
         action: Type.TLiteral<"list">;

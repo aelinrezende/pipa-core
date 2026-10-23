@@ -11,7 +11,7 @@ export declare const TASK_TOOL_SCHEMA: {
             }>>;
             parentTaskId: Type.TOptional<Type.TString>;
             squad: Type.TOptional<Type.TString>;
-            outputDirectory: Type.TOptional<Type.TString>;
+            outputDirectory: Type.TString;
             status: Type.TOptional<Type.TUnion<boolean[]>>;
         }>;
     }>;
@@ -62,7 +62,8 @@ export declare const TASK_TOOL_SCHEMA: {
     complete: Type.TObject<{
         action: Type.TLiteral<"complete">;
         id: Type.TString;
-        artifactFile: Type.TString;
+        artifactName: Type.TString;
+        report: Type.TString;
         force: Type.TOptional<Type.TBoolean>;
     }>;
     reopen: Type.TObject<{

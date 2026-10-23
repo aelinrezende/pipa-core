@@ -1,4 +1,5 @@
 import { Task } from '../task/task.entity';
+export declare const COMPLETION_REPORT_INSTRUCTION: string;
 /**
  * Gera o prompt de squad para o spawned.
  * @param squad O squad herdado pela tarefa atual (se houver).
