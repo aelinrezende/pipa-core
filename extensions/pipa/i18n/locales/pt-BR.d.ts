@@ -103,6 +103,7 @@ export declare const ptBR: {
                 failed: string;
                 denied: string;
             };
+            idlePendingTask: string;
         };
         errors: {
             notFound: string;
@@ -179,6 +180,10 @@ export declare const ptBR: {
                 failed: string;
                 denied: string;
             };
+            idle: string;
+            retrying: string;
+            recovering: string;
+            escalate: string;
         };
         errors: {
             teammateNotFound: string;
@@ -240,6 +245,7 @@ export declare const ptBR: {
                 failed: string;
                 success: string;
             };
+            publishedNotification: string;
         };
         errors: {
             documentNotFound: string;
@@ -255,8 +261,6 @@ export declare const ptBR: {
         confirm: {
             removeBacklog: string;
             removeBacklogBody: string;
-            write: string;
-            writeBody: string;
         };
         reason: {
             dismissed: string;
@@ -266,7 +270,6 @@ export declare const ptBR: {
             noSpawn: string;
             onlyMainRemoves: string;
             backlogRemovalCancelled: string;
-            writeCancelled: string;
             blockedCommand: string;
             policyBlocked: string;
         };
@@ -331,6 +334,9 @@ export declare const ptBR: {
             remove: {
                 failed: string;
             };
+            empty: string;
+            pending: string;
+            stuckEscalation: string;
         };
         errors: {
             itemNotFound: string;

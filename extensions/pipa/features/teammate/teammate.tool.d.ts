@@ -19,9 +19,9 @@ export declare class TeammateTool extends TeammateTool_base {
     /**
      * Aciona um teammate e inicia uma nova sessão para ele.
      * @param data Payload único da action 'instantiate'.
-     * @returns O teammate criado (sem session/pipa, não serializáveis).
+     * @returns O teammate criado (sem session/pipa, não serializáveis, e sem body internos).
      */
-    instantiate(data: TeammateToolSchema<'instantiate'>): Promise<Teammate>;
+    instantiate(data: TeammateToolSchema<'instantiate'>): Promise<Partial<Teammate>>;
 }
 export {};
 //# sourceMappingURL=teammate.tool.d.ts.map

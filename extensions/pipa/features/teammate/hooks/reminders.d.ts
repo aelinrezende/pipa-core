@@ -13,12 +13,17 @@ export declare class TeammateReminders extends PipaBaseFeature {
     private readonly sessionIntervals;
     private lastIdleNudgeAt;
     private idleNudgeCount;
+    private escalated;
     private readonly failure;
     nudgeInbox(_: unknown, pipa: PipaApi): void;
     nudgeIdleTeammate(_: unknown, pipa: PipaApi): void;
     nudgeFailedTeammate(_: unknown, pipa: PipaApi): void;
     handleAgentFail(event: MessageStartEvent | MessageUpdateEvent | MessageEndEvent, pipa: PipaApi): Promise<void>;
     handleIdleActivityEvent(): void;
+    /**
+     * Marca uso real de ferramenta. Único lugar que zera o contador de nudge.
+     */
+    handleToolExecutionStart(): void;
     clearReminders(_: unknown, pipa: PipaApi): void;
 }
 //# sourceMappingURL=reminders.d.ts.map
