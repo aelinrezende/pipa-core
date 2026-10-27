@@ -40,6 +40,8 @@ export declare const catalogs: {
                 'squad-status': string;
             };
             taskCompleted: string;
+            parentReady: string;
+            parentReopened: string;
             parentTaskCompleted: string;
             parentTaskReopened: string;
             blockedDependents: string;
@@ -416,6 +418,8 @@ export declare const catalogs: {
                 'squad-status': string;
             };
             taskCompleted: string;
+            parentReady: string;
+            parentReopened: string;
             parentTaskCompleted: string;
             parentTaskReopened: string;
             blockedDependents: string;

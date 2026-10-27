@@ -37,15 +37,13 @@ export declare class TaskRepository extends PipaRepository<Task> {
      */
     hasActiveTask(sessionId: string): boolean;
     getActiveTask(sessionId: string): Task | undefined;
-    /**
-     * Lista as tarefas principais (épicos) de todos os squads em andamento ou registrados.
-     */
-    getActiveSquads(): Task[];
     hasUncompletedHardDependency(task: Task): boolean;
+    isParentReady(parentId: string): boolean;
+    reopenParent(parentId: string): boolean;
     /**
      * Calcula o novo status de uma tarefa pai a partir das filhas.
      *
-     * `allCompleted → anyInProgress → allPending`, senão mantém o status atual.
+     * `anyInProgress → allPending`, senão mantém o status atual.
      *
      * @param parentStatus Status atual da tarefa pai.
      * @param children Filhas da tarefa pai.

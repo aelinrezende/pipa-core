@@ -11,6 +11,8 @@ export declare class TaskCore extends TaskValidator {
     protected readonly repo: TaskRepository;
     protected readonly teammateRepo: TeammateRepository;
     constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
+    protected notifyParentReady(parentId: string, wasReady: boolean): void;
+    protected reopenParent(parentId: string): void;
     private compactTerminalSession;
     get({ id }: TaskToolSchema<'get'>): Task;
     /**

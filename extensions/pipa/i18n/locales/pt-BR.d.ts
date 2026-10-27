@@ -56,6 +56,8 @@ export declare const ptBR: {
             'squad-status': string;
         };
         taskCompleted: string;
+        parentReady: string;
+        parentReopened: string;
         parentTaskCompleted: string;
         parentTaskReopened: string;
         blockedDependents: string;

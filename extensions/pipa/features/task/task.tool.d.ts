@@ -1,17 +1,16 @@
 import type { PipaApi } from '../../interfaces';
 import { TeammateRepository } from '../teammate/teammate.repository';
-import { TaskCore, TaskSquad } from './tooling';
+import { TaskCore } from './tooling';
 import { Task, TaskToolSchema } from './task.entity';
 import { TaskRepository } from './task.repository';
-declare const TaskTool_base: import("ts-mixer/dist/types/types").Class<any[], TaskCore & TaskSquad, typeof TaskCore & typeof TaskSquad>;
 /**
  * Gerencia as tarefas atribuídas aos teammates.
  *
  * Os métodos seguem a convenção do padrão backlog: nome camelCase da action
- * (instantiate/get/list/setup/start/update/remove/complete/listBySquad/squadStatus)
+ * (instantiate/get/list/setup/start/update/remove/complete/reopen/pause/resume)
  * recebendo payload único tipado.
  */
-export declare class TaskTool extends TaskTool_base {
+export declare class TaskTool extends TaskCore {
     readonly pipa: PipaApi;
     readonly folder: string;
     protected readonly repo: TaskRepository;
@@ -24,5 +23,4 @@ export declare class TaskTool extends TaskTool_base {
      */
     instantiate(data: TaskToolSchema<'instantiate'>): Task;
 }
-export {};
 //# sourceMappingURL=task.tool.d.ts.map

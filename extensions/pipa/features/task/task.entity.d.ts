@@ -26,8 +26,6 @@ export declare class Task {
     blockedBy: Dependency[];
     /** ID da tarefa pai à qual esta subtask pertence */
     parentTaskId?: string;
-    /** Nome do squad ao qual esta tarefa pertence */
-    squad?: string;
     /** Diretório onde os arquivos relacionados à tarefa serão armazenados */
     directory: string;
     /** Diretório autorizado para artefatos da tarefa */

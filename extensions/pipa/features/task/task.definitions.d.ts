@@ -10,7 +10,6 @@ export declare const TASK_TOOL_SCHEMA: {
                 type: Type.TUnion<boolean[]>;
             }>>;
             parentTaskId: Type.TOptional<Type.TString>;
-            squad: Type.TOptional<Type.TString>;
             outputDirectory: Type.TString;
             status: Type.TOptional<Type.TUnion<boolean[]>>;
         }>;
@@ -42,7 +41,6 @@ export declare const TASK_TOOL_SCHEMA: {
                 type: Type.TUnion<boolean[]>;
             }>>>;
             parentTaskId: Type.TOptional<Type.TString>;
-            squad: Type.TOptional<Type.TString>;
             outputDirectory: Type.TOptional<Type.TString>;
         }>;
     }>;
@@ -79,14 +77,6 @@ export declare const TASK_TOOL_SCHEMA: {
     resume: Type.TObject<{
         action: Type.TLiteral<"resume">;
         id: Type.TString;
-    }>;
-    'list-by-squad': Type.TObject<{
-        action: Type.TLiteral<"list-by-squad">;
-        squad: Type.TString;
-    }>;
-    'squad-status': Type.TObject<{
-        action: Type.TLiteral<"squad-status">;
-        squad: Type.TString;
     }>;
 };
 /**

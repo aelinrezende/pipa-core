@@ -11,6 +11,8 @@ export declare class TeammateCore extends TeammateValidator {
     protected readonly repo: TeammateRepository;
     protected readonly taskRepo: TaskRepository;
     constructor(pipa: PipaApi, repo: TeammateRepository, taskRepo: TaskRepository);
+    protected notifyParentReady(parentId: string, wasReady: boolean): void;
+    protected reopenParent(parentId: string): void;
     /**
      * Lista teammates com sessão ativa.
      * @returns Lista de teammates online com status e tokens.

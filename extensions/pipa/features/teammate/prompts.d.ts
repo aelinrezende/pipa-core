@@ -1,11 +1,4 @@
-import { Task } from '../task/task.entity';
 export declare const COMPLETION_REPORT_INSTRUCTION: string;
-/**
- * Gera o prompt de squad para o spawned.
- * @param squad O squad herdado pela tarefa atual (se houver).
- * @param epics A lista de tarefas que possuem squad.
- */
-export declare function getSquadPrompt(squad?: string, epics?: Task[]): string;
 export declare const SUBAGENT_POLICY_PROMPT: string;
 /**
  * Observações gerais sobre uso de comandos de terminal: escopo, custo e ruído.
