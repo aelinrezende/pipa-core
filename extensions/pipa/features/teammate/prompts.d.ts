@@ -1,4 +1,3 @@
-export declare const COMPLETION_REPORT_INSTRUCTION: string;
 export declare const SUBAGENT_POLICY_PROMPT: string;
 /**
  * Observações gerais sobre uso de comandos de terminal: escopo, custo e ruído.
