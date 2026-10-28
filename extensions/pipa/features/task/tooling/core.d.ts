@@ -9,7 +9,6 @@ import { TaskValidator } from './validator';
 export declare class TaskCore extends TaskValidator {
     readonly pipa: PipaApi;
     protected readonly repo: TaskRepository;
-    protected readonly teammateRepo: TeammateRepository;
     constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
     protected notifyParentReady(parentId: string, wasReady: boolean): void;
     protected reopenParent(parentId: string): void;
@@ -54,9 +53,9 @@ export declare class TaskCore extends TaskValidator {
      */
     complete({ id, artifactName, report, force }: TaskToolSchema<'complete'>): Promise<Task>;
     /**
-     * Reabre uma tarefa concluída, devolvendo-a ao andamento e notificando o supervisor.
-     * @param data Payload da action 'reopen': o ID e, para tarefa alheia, o motivo.
-     * @returns A tarefa reaberta.
+     * Reopens a completed task, returning it to in-progress and notifying the owner or supervisor.
+     * @param data The task ID and required reason for reopening.
+     * @returns The reopened task.
      */
     reopen({ id, reason }: TaskToolSchema<'reopen'>): Task;
     /**

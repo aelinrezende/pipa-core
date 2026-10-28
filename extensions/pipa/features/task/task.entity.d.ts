@@ -32,6 +32,8 @@ export declare class Task {
     outputDirectory: string;
     /** Caminho do artefato que comprova o resultado final da tarefa */
     artifactFile?: string;
+    /** Motivo da reabertura atual, limpo na conclusão seguinte */
+    reopenReason?: string;
     /** Motivo auditável para uma pausa por bloqueio externo */
     pauseReason?: string;
     /** ID da sessão/agente criador da tarefa */

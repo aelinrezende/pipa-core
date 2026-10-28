@@ -1,4 +1,5 @@
 import { Teammate } from '../../teammate/teammate.entity';
+import { TeammateRepository } from '../../teammate/teammate.repository';
 import { Dependency, Task } from '../task.entity';
 import type { PipaApi } from '../../../interfaces';
 import { TaskRepository } from '../task.repository';
@@ -9,7 +10,8 @@ import { TaskRepository } from '../task.repository';
 export declare class TaskValidator {
     readonly pipa: PipaApi;
     protected readonly repo: TaskRepository;
-    constructor(pipa: PipaApi, repo: TaskRepository);
+    protected readonly teammateRepo: TeammateRepository;
+    constructor(pipa: PipaApi, repo: TaskRepository, teammateRepo: TeammateRepository);
     /**
      * Valida unicidade de nome da tarefa.
      */
@@ -53,11 +55,10 @@ export declare class TaskValidator {
         artifactFile: string;
     };
     /**
-     * Valida se uma tarefa pode ser reaberta pelo teammate.
-     * Exige que a tarefa esteja concluída e que o solicitante seja o owner atual ou main.
-     * Tarefas sem owner não podem ser reabertas (§4.1).
+     * Validates reopening by the owner, main, or the owner's direct supervisor.
+     * The task must be completed and have an owner and a nonblank reason.
      */
-    protected canReopen(id: string, teammate: Teammate, reason?: string): Task;
+    protected canReopen(id: string, teammate: Teammate, reason: string): Task;
     /**
      * Valida se uma tarefa em andamento pode ser pausada pelo teammate.
      * Exige que o solicitante seja o owner atual.
