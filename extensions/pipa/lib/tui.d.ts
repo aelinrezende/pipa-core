@@ -1,4 +1,4 @@
-import type { Component } from '@earendil-works/pi-tui';
+import { type Component } from '@earendil-works/pi-tui';
 import type { Theme } from '@earendil-works/pi-coding-agent';
 /**
  * Representa um nó em uma estrutura de árvore, contendo os dados originais
@@ -61,6 +61,7 @@ export declare abstract class AbstractTreeWidget<T> implements Component {
      */
     protected renderNode(node: TreeNode<T>, prefix: string, isLast: boolean): string[];
 }
+export declare function padWidgetLines(lines: string[], width: number): string[];
 /**
  * Trunca um texto para no máximo maxLength caracteres,
  * adicionando '…' se excedido.
