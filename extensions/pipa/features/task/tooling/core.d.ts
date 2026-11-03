@@ -51,7 +51,7 @@ export declare class TaskCore extends TaskValidator {
      * @param data Payload único da action 'complete'.
      * @returns A tarefa concluída.
      */
-    complete({ id, artifactName, report, force }: TaskToolSchema<'complete'>): Promise<Task>;
+    complete({ id, artifactName, report, force, overwrite }: TaskToolSchema<'complete'>): Promise<Task>;
     /**
      * Reopens a completed task, returning it to in-progress and notifying the owner or supervisor.
      * @param data The task ID and required reason for reopening.

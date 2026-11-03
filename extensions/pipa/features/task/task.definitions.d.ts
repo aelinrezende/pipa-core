@@ -63,6 +63,7 @@ export declare const TASK_TOOL_SCHEMA: {
         artifactName: Type.TString;
         report: Type.TString;
         force: Type.TOptional<Type.TBoolean>;
+        overwrite: Type.TOptional<Type.TBoolean>;
     }>;
     reopen: Type.TObject<{
         action: Type.TLiteral<"reopen">;

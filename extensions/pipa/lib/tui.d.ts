@@ -1,5 +1,5 @@
-import { type Component } from '@earendil-works/pi-tui';
 import type { Theme } from '@earendil-works/pi-coding-agent';
+import { type Component } from '@earendil-works/pi-tui';
 /**
  * Representa um nó em uma estrutura de árvore, contendo os dados originais
  * mais um array de seus filhos.
@@ -61,6 +61,10 @@ export declare abstract class AbstractTreeWidget<T> implements Component {
      */
     protected renderNode(node: TreeNode<T>, prefix: string, isLast: boolean): string[];
 }
+/**
+ * Adiciona preenchimento à esquerda das linhas de um widget para alinhar com a largura especificada.
+ * Se a largura for menor que o comprimento da linha, a linha será truncada.
+ */
 export declare function padWidgetLines(lines: string[], width: number): string[];
 /**
  * Trunca um texto para no máximo maxLength caracteres,
