@@ -28,15 +28,10 @@ export declare class TeammateCore extends TeammateValidator {
     /**
      * Remove um teammate (subagente) e todos os seus subordinados.
      * @param data Payload único da action 'dismiss'.
-     * @returns Confirmação com o agente removido e a quantidade de sessões encerradas.
+     * @returns Confirmação com os agentes removidos e a quantidade de sessões encerradas.
      */
     dismiss({ teammateId, reason, force }: TeammateToolSchema<'dismiss'>): {
-        dismissed: {
-            id: string;
-            name: string;
-        };
         count: number;
-        reason: string;
         removed: {
             id: string;
             name: string;

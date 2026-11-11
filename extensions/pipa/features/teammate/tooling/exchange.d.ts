@@ -21,7 +21,6 @@ export declare class TeammateExchange {
             id: string;
             name: string;
         };
-        from: string;
         delivered: boolean;
     };
     /**
