@@ -22,7 +22,6 @@ export declare class TeammateExchange {
             name: string;
         };
         from: string;
-        message: string;
         delivered: boolean;
     };
     /**
