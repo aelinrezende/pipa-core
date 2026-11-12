@@ -12,7 +12,9 @@ import type { Component } from '@earendil-works/pi-tui';
  * @param text Resumo legível do comando executado.
  * @returns Um {@link AgentToolResult} pronto para ser retornado por `execute`.
  */
-export declare function buildToolResult<TDetails>(details: TDetails, text: string): AgentToolResult<TDetails>;
+export declare function buildToolResult<TDetails>(details: TDetails, text: string, options?: {
+    followUps?: string[];
+}): AgentToolResult<TDetails>;
 /**
  * Renderiza o resultado de uma tool na TUI.
  *
