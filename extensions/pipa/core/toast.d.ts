@@ -1,7 +1,7 @@
-import type { Notification } from 'node-notifier';
-export interface ToastOptions extends Notification {
+import type { AnyNotification } from 'node-notifier';
+export type ToastOptions = AnyNotification & {
     message: string;
-}
+};
 export declare class Toast {
     private readonly interpolations;
     private readonly activeToasts;

@@ -7,6 +7,8 @@ export interface PipaTeammateCyclingConfig {
 }
 /** Configurações de comportamento e limites do agente na extensão Pipa. */
 export interface PipaTeammateConfig {
+    /** Número máximo de colegas diretos ainda não dispensados por solicitante. */
+    maxDirectTeammates?: number;
     /**
      * Define como as notificações (nudges) interrompem ou direcionam o agente.
      * 'steer': guia o agente sem abortar a geração atual.

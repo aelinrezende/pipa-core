@@ -192,6 +192,7 @@ export declare const ptBR: {
             notAllowedToSpawn: string;
             invalidThinking: string;
             alreadyOnline: string;
+            directLimitReached: string;
             dismissNotFound: string;
             dismissMainForbidden: string;
             dismissDenied: string;

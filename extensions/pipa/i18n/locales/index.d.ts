@@ -176,6 +176,7 @@ export declare const catalogs: {
                 notAllowedToSpawn: string;
                 invalidThinking: string;
                 alreadyOnline: string;
+                directLimitReached: string;
                 dismissNotFound: string;
                 dismissMainForbidden: string;
                 dismissDenied: string;
@@ -554,6 +555,7 @@ export declare const catalogs: {
                 notAllowedToSpawn: string;
                 invalidThinking: string;
                 alreadyOnline: string;
+                directLimitReached: string;
                 dismissNotFound: string;
                 dismissMainForbidden: string;
                 dismissDenied: string;

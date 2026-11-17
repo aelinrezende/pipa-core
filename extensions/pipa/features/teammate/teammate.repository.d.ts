@@ -13,6 +13,8 @@ export declare class TeammateRepository extends PipaRepository<Teammate> {
      * quando não encontrado.
      */
     findOneOrFail(sessionId: string): Teammate;
+    /** Conta os subordinados diretos ainda presentes no repositório. */
+    countDirectSubordinates(sessionId: string): number;
     /**
      * Lista todos os subordinados recursivamente para o sessionId fornecido.
      */
