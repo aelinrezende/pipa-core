@@ -1,5 +1,5 @@
 import type { ToolCallEventResult } from '@earendil-works/pi-coding-agent';
-import type { MessageEndEvent } from '@earendil-works/pi-coding-agent/extensions';
+import type { MessageStartEvent, ToolExecutionStartEvent } from '@earendil-works/pi-coding-agent/extensions';
 import { PiEvent } from '../../../constants/pipa';
 import type { PipaApi } from '../../../interfaces';
 import { PipaBaseFeature } from '../../base-feature';
@@ -17,6 +17,6 @@ export declare class TeammateObservability extends PipaBaseFeature {
         args?: any;
         input?: any;
     }, pipa: PipaApi): void;
-    logTeammateMessages(event: MessageEndEvent, pipa: PipaApi): ToolCallEventResult | void;
+    logTeammateMessages(event: MessageStartEvent | ToolExecutionStartEvent, pipa: PipaApi): ToolCallEventResult | void;
 }
 //# sourceMappingURL=observability.d.ts.map
