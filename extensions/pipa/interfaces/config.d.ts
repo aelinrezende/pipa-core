@@ -50,5 +50,10 @@ export interface PipaConfig {
      * @default false
      * */
     persistMessages?: boolean;
+    /**
+     * Se verdadeiro, grava erros de execução do teammate em `errors.json` para auditoria.
+     * @default false
+     * */
+    persistErrors?: boolean;
 }
 //# sourceMappingURL=config.d.ts.map
