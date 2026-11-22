@@ -77,4 +77,6 @@ export declare const TASK_TOOL_NUDGES: {
         readonly denied: readonly [string, string];
     };
 };
+/** Subpasta do outputDirectory onde os relatórios de conclusão são gravados. */
+export declare const REPORTS_DIRECTORY = "reports";
 //# sourceMappingURL=task.d.ts.map

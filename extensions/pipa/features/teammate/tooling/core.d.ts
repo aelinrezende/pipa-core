@@ -21,7 +21,6 @@ export declare class TeammateCore extends TeammateValidator {
         id: string;
         name: string;
         status: import("../teammate.entity").TeammateStatus;
-        statusEmoji: string;
         tokens_in: string;
         tokens_out: string;
     }[];

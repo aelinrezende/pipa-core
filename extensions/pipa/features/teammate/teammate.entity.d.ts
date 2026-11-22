@@ -1,8 +1,8 @@
 import type { ThinkingLevel } from '@earendil-works/pi-agent-core';
 import { AgentSession } from '@earendil-works/pi-coding-agent';
 import { PiEvent } from '../../constants/pipa';
-import { PipaApi } from '../../interfaces/pipa';
 import { OmitGetters, ToolActionPayload, ToolParams } from '../../interfaces/common';
+import { PipaApi } from '../../interfaces/pipa';
 import { TEAMMATE_TOOL_SCHEMA } from './teammate.definitions';
 export type TeammateToolParams = ToolParams<typeof TEAMMATE_TOOL_SCHEMA>;
 /** Payload de cada ação da tool teammates */
@@ -53,6 +53,8 @@ export declare class Teammate {
     get isStopping(): boolean;
     /** Indica se o agente está compactando o contexto */
     get isCompacting(): boolean;
+    /** Indica se o agente está com falha */
+    get isFailed(): boolean;
 }
 export type TeammateStatus = 'running' | 'idle' | 'failed' | 'stopping' | 'compacting';
 export interface TeammateFrontmatter {

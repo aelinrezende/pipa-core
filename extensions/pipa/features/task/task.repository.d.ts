@@ -39,6 +39,20 @@ export declare class TaskRepository extends PipaRepository<Task> {
     getActiveTask(sessionId: string): Task | undefined;
     hasUncompletedHardDependency(task: Task): boolean;
     isParentReady(parentId: string): boolean;
+    /**
+     * Indica se a task já aponta para um pai.
+     *
+     * @param id id da task consultada.
+     * @returns `true` quando a task existe e tem `parentTaskId` definido.
+     */
+    hasParent(id: string): boolean;
+    /**
+     * Indica se a task já tem filhas.
+     *
+     * @param id task consultada.
+     * @returns `true` quando existe ao menos uma task cujo `parentTaskId` é `id`.
+     */
+    hasSubtasks(id: string): boolean;
     reopenParent(parentId: string): boolean;
     /**
      * Calcula o novo status de uma tarefa pai a partir das filhas.

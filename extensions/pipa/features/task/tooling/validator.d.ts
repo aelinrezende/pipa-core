@@ -20,12 +20,14 @@ export declare class TaskValidator {
      * Valida integridade de dependências (anti-órfão).
      */
     private validateAntiOrphan;
+    protected assertParentDepth(parentTaskId: string | undefined, action: 'instantiate' | 'update'): void;
     /**
      * Valida se uma nova tarefa pode ser criada.
      * Verifica unicidade do nome para evitar duplicidades de escopo.
      * Verifica integridade de referências (anti-órfãos).
+     * Verifica a profundidade máxima de 2 níveis da árvore de tasks.
      */
-    protected canCreate(taskName: string, blockedBy?: Dependency[]): void;
+    protected canCreate(taskName: string, blockedBy?: Dependency[], parentTaskId?: string): void;
     /**
      * Valida se uma tarefa pode receber a ação de setup.
      * Aceita setup apenas de tarefas que estão no status 'setup'.
@@ -50,9 +52,10 @@ export declare class TaskValidator {
      * (ou supervisor/main no caso de force) e se há subtarefas pendentes.
      * A orientação de force só é exibida para main (não-main não pode usar force).
      */
-    protected canComplete(id: string, teammate: Teammate, artifactName: string, force?: boolean): {
+    protected canComplete(id: string, teammate: Teammate, artifactName: string, force?: boolean, overwrite?: boolean): {
         task: Task;
         artifactFile: string;
+        reportDirectory: string;
     };
     /**
      * Validates reopening by the owner, main, or the owner's direct supervisor.

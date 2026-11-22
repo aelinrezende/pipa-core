@@ -15,7 +15,8 @@ export declare class TeammateValidator {
      * Valida se um novo agente pode ser criado.
      * Verifica a existência da documentação do agente e se ele já não está rodando.
      */
-    protected canSpawn(name: string, cwd: string, teammate: Teammate): TeammateFrontmatter;
+    protected canSpawn(name: string, cwd: string, teammate: Teammate, parentTaskId?: string): TeammateFrontmatter;
+    protected assertParentDepth(parentTaskId?: string): void;
     /**
      * Valida se um agente pode ser desligado.
      * Impede exclusões não autorizadas (role), de apagar o agente principal ou agentes trabalhando ativamente.

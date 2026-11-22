@@ -9,6 +9,7 @@ export declare class PipaRepository<T> implements IRepository<T> {
     private readonly keyOf;
     private readonly items;
     private flush;
+    get count(): number;
     all(): T[];
     findBy(predicate: (item: T) => boolean): T[];
     getOneById(id: string): T | undefined;

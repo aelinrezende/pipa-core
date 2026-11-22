@@ -105,6 +105,11 @@ export declare const catalogs: {
                 forceForbidden: string;
                 forceOnlyMain: string;
                 artifactFileRequired: string;
+                parentTooDeep: string;
+                hasSubtasksCannotNest: string;
+                invalidArtifactName: string;
+                artifactExists: string;
+                artifactWriteFailed: string;
                 artifactFileNotFound: string;
                 artifactFileInvalid: string;
                 pauseReasonRequired: string;
@@ -484,6 +489,11 @@ export declare const catalogs: {
                 forceForbidden: string;
                 forceOnlyMain: string;
                 artifactFileRequired: string;
+                parentTooDeep: string;
+                hasSubtasksCannotNest: string;
+                invalidArtifactName: string;
+                artifactExists: string;
+                artifactWriteFailed: string;
                 artifactFileNotFound: string;
                 artifactFileInvalid: string;
                 pauseReasonRequired: string;

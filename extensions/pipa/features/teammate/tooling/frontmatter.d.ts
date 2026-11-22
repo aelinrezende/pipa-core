@@ -1,5 +1,5 @@
-import { TeammateFrontmatter as Frontmatter } from '../teammate.entity';
 import { PipaApi } from '../../../interfaces';
+import { TeammateFrontmatter as Frontmatter } from '../teammate.entity';
 export declare class TeammateFrontmatter {
     readonly pipa: PipaApi;
     constructor(pipa: PipaApi);
@@ -11,9 +11,6 @@ export declare class TeammateFrontmatter {
      * Lista o frontmatter de todos os teammates disponíveis.
      * @returns Lista de colegas disponíveis (nome + descrição).
      */
-    list(): {
-        name: string;
-        description: string;
-    }[];
+    list(): Partial<MapIterator<Frontmatter>>;
 }
 //# sourceMappingURL=frontmatter.d.ts.map

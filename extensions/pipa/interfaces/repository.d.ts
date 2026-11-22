@@ -31,6 +31,10 @@ export declare abstract class IRepository<T> {
     readonly options: IRepositoryOptions<T>;
     constructor(pipa: PipaApi, entity: new (data: T) => T, options?: IRepositoryOptions<T>);
     /**
+     * Conta o número de itens no repositório.
+     * */
+    abstract get count(): number;
+    /**
      * Lista todos os itens.
      * */
     abstract all(): T[];

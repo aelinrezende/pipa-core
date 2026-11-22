@@ -121,6 +121,11 @@ export declare const ptBR: {
             forceForbidden: string;
             forceOnlyMain: string;
             artifactFileRequired: string;
+            parentTooDeep: string;
+            hasSubtasksCannotNest: string;
+            invalidArtifactName: string;
+            artifactExists: string;
+            artifactWriteFailed: string;
             artifactFileNotFound: string;
             artifactFileInvalid: string;
             pauseReasonRequired: string;
