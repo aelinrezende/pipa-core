@@ -22,9 +22,26 @@ export declare class TaskCore extends TaskValidator {
     /**
      * Lista as tarefas do quadro, com suporte a filtro opcional por status.
      * @param data Payload único da action 'list'.
-     * @returns A lista de tarefas.
+     * @returns A lista de tarefas em projeção enxuta, com a `description` truncada.
      */
-    list({ status }: TaskToolSchema<'list'>): Task[];
+    list({ status }: TaskToolSchema<'list'>): Record<string, Omit<{
+        id: string;
+        name: string;
+        status: import("../task.entity").TaskStatus;
+        owner?: Pick<import("../../teammate/teammate.entity").Teammate, 'sessionId' | 'name'>;
+        blockedBy: import("../task.entity").Dependency[];
+        reopenReason?: string;
+        pauseReason?: string;
+        createdAt: number;
+        completedAt?: number;
+        isPending: boolean;
+        isCompleted: boolean;
+        isInProgress: boolean;
+        isSetup: boolean;
+        isAssigned: boolean;
+        canManage: (teammate: import("../../teammate/teammate.entity").Teammate) => boolean;
+        description: string;
+    }, "name">>;
     /**
      * Inicializa uma nova tarefa com metadados básicos e a marca como em andamento.
      * @param data Payload único da action 'setup'.
